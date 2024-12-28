@@ -21,7 +21,7 @@ A website for the Advanced Polymer Sintering Laboratory, University of Sheffield
 
 # Where to find our documents.
 
-The docs folder consists of all the documents necessary for the following project. It includes the Requirements Documents, User Documentation, Design Documentation, and the Risk Register. 
+The docs folder consists of all the documents necessary for the project. It includes the Requirements Documents, User Documentation, Design Documentation, and the Risk Register. 
 
 # Project Layout
 
@@ -35,7 +35,7 @@ Packs contains assets such as javascript/css files and images.
 For the database we have `seeds.rb` and `testing_seeds.rb` in the `db/` folder.
 
 ## Docs folder, sample_files
-In the docs folder we have some images that were needed to be easily accessed by our team when developing the application.
+In the docs folder consists of all the documentation for this project. 
 
 The sample files folder contains arbitrary files used to seed the database.
 
