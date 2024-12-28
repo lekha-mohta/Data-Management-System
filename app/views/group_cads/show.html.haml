@@ -1,0 +1,14 @@
+.row.justify-content-center
+  .col-sm-8.col-lg-6
+    .card
+      .card-header
+        Group Cad details
+      .card-body
+        %dl.row.mb-0
+          %dt.col-md-3 Groupid:
+          %dd.col-md-9= @group_cad.groupId
+          %dt.col-md-3 Cadid:
+          %dd.col-md-9= @group_cad.cadId
+      .card-footer.d-flex
+        = link_to 'Edit', edit_group_cad_path(@group_cad), class: 'btn btn-link'
+        = link_to 'Back', group_cads_path, class: 'btn btn-link ms-auto'

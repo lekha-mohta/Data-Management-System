@@ -1,0 +1,36 @@
+-# frozen_string_literal: true
+= simple_form_for(@build) do |f|
+  .card-body
+    = f.input :name, input_html: { class: 'form-control' }, wrapper_html: { class: 'mb-3' }
+    = f.input :projectId, label: "Project Name", collection: BuildProject.pluck(:name, :id), include_blank: true, input_html: { class: 'form-control' }, wrapper_html: { class: 'mb-3' }
+    = f.input :materialId, label: "Material Name", collection: Material.pluck(:name, :id), include_blank: true, input_html: { class: 'form-control' }, wrapper_html: { class: 'mb-3' }
+    = f.input :machineId, label: "Machine Name", as: :select, collection: Machine.all.map { |machine| [machine.name, machine.id] }, prompt: 'Select a Machine', input_html: { class: 'form-control' }, wrapper_html: { class: 'mb-3' }
+    
+    = f.input :comments, wrapper_html: { class: 'mb-3' }
+    = f.input :completed, wrapper_html: { class: 'mb-3' }
+    = f.input :avgUTS, wrapper_html: { class: 'mb-3' }
+    = f.input :avgModules, wrapper_html: { class: 'mb-3' }
+    = f.input :avgEaB, wrapper_html: { class: 'mb-3' }
+
+  .card-footer.d-flex
+    = f.button :submit, class: 'btn btn-primary'
+    = link_to 'Back', builds_path, class: 'btn btn-link ms-auto'
+
+:javascript
+  document.addEventListener('DOMContentLoaded', function() {
+    var machineSelector = document.getElementById('machine_selector');
+    machineSelector.addEventListener('change', function() {
+      var machineId = machine;
+      if(machineId) {
+        Rails.ajax({
+          url: "/machines/" + machineId + "/parameters",
+          type: "GET",
+          success: function(data) {
+            document.getElementById('parameters').innerHTML = data;
+          }
+        });
+      } else {
+        document.getElementById('parameters').innerHTML = '';
+      }
+    });
+  });

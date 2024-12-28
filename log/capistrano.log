@@ -1,0 +1,465 @@
+# Logfile created on 2024-04-29 12:51:37 +0100 by logger.rb/v1.5.0
+  INFO ---------------------------------------------------------------------------
+  INFO START 2024-04-29 12:51:37 +0100 cap demo deploy target=latest
+  INFO ---------------------------------------------------------------------------
+  INFO ---------------------------------------------------------------------------
+  INFO START 2024-04-29 12:54:26 +0100 cap demo deploy target=latest
+  INFO ---------------------------------------------------------------------------
+  INFO ---------------------------------------------------------------------------
+  INFO START 2024-04-30 11:14:11 +0100 cap demo deploy target=latest
+  INFO ---------------------------------------------------------------------------
+  INFO ---------------------------------------------------------------------------
+  INFO START 2024-04-30 11:16:10 +0100 cap demo deploy target=latest
+  INFO ---------------------------------------------------------------------------
+  INFO [58d6ee3c] Running /usr/bin/env mkdir -p /tmp as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [58d6ee3c] Finished in 0.217 seconds with exit status 0 (successful).
+  INFO Uploading /tmp/git-ssh-9cbc5f29bc9ec4a7cc7a.sh 100.0%
+  INFO [d8303e63] Running /usr/bin/env chmod 700 /tmp/git-ssh-9cbc5f29bc9ec4a7cc7a.sh as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [d8303e63] Finished in 0.390 seconds with exit status 0 (successful).
+  INFO [54999827] Running /usr/bin/env git ls-remote git@git.shefcompsci.org.uk:com3420-2023-24/team07/project.git HEAD as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [54999827] Finished in 1.666 seconds with exit status 0 (successful).
+  INFO [5fe4a474] Running /usr/bin/env mkdir -p /srv/services/demo.team07/shared /srv/services/demo.team07/releases as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [5fe4a474] Finished in 0.595 seconds with exit status 0 (successful).
+  INFO [c8488d88] Running /usr/bin/env mkdir -p /srv/services/demo.team07/shared/log /srv/services/demo.team07/shared/tmp/pids /srv/services/demo.team07/shared/public/packs /srv/services/demo.team07/shared/node_modules /srv/services/demo.team07/shared/storage /srv/services/demo.team07/shared/public/assets as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [c8488d88] Finished in 0.271 seconds with exit status 0 (successful).
+  INFO [4f85e19c] Running /usr/bin/env mkdir -p /srv/services/demo.team07/shared/config as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [4f85e19c] Finished in 0.126 seconds with exit status 0 (successful).
+  INFO [597f334c] Running /usr/bin/env git clone --mirror git@git.shefcompsci.org.uk:com3420-2023-24/team07/project.git /srv/services/demo.team07/repo as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [597f334c] Finished in 2.088 seconds with exit status 0 (successful).
+  INFO [1733252b] Running /usr/bin/env git remote set-url origin git@git.shefcompsci.org.uk:com3420-2023-24/team07/project.git as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [1733252b] Finished in 0.179 seconds with exit status 0 (successful).
+  INFO [72a24cd9] Running /usr/bin/env git remote update --prune as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [72a24cd9] Finished in 1.515 seconds with exit status 0 (successful).
+  INFO [65bd32a7] Running /usr/bin/env mkdir -p /srv/services/demo.team07/releases/20240430101616 as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [65bd32a7] Finished in 0.293 seconds with exit status 0 (successful).
+  INFO [c4eec74b] Running /usr/bin/env git archive demo | /usr/bin/env tar -x -f - -C /srv/services/demo.team07/releases/20240430101616 as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [c4eec74b] Finished in 2.125 seconds with exit status 0 (successful).
+  INFO [3b9a814d] Running /usr/bin/env sudo monit -g demo.team07 unmonitor as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [a8b2b1cb] Running /usr/bin/env echo "c8982d5ceb17e5741b3c874633fc42ed91d4ef16" > REVISION as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [a8b2b1cb] Finished in 0.196 seconds with exit status 0 (successful).
+  INFO [460c0284] Running /usr/bin/env mkdir -p /srv/services/demo.team07/releases/20240430101616/config as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [460c0284] Finished in 0.110 seconds with exit status 0 (successful).
+  INFO [7f66d39c] Running /usr/bin/env ln -s /srv/services/demo.team07/shared/config/database.yml /srv/services/demo.team07/releases/20240430101616/config/database.yml as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [7f66d39c] Finished in 0.361 seconds with exit status 0 (successful).
+  INFO [fb49109f] Running /usr/bin/env rm /srv/services/demo.team07/releases/20240430101616/config/secrets.yml as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [fb49109f] Finished in 0.358 seconds with exit status 0 (successful).
+  INFO [76f14db7] Running /usr/bin/env ln -s /srv/services/demo.team07/shared/config/secrets.yml /srv/services/demo.team07/releases/20240430101616/config/secrets.yml as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [76f14db7] Finished in 0.320 seconds with exit status 0 (successful).
+  INFO [6ebdb2e2] Running /usr/bin/env mkdir -p /srv/services/demo.team07/releases/20240430101616 /srv/services/demo.team07/releases/20240430101616/tmp /srv/services/demo.team07/releases/20240430101616/public as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [6ebdb2e2] Finished in 0.168 seconds with exit status 0 (successful).
+  INFO [f452b793] Running /usr/bin/env rm -rf /srv/services/demo.team07/releases/20240430101616/log as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [f452b793] Finished in 0.303 seconds with exit status 0 (successful).
+  INFO [b22582bb] Running /usr/bin/env ln -s /srv/services/demo.team07/shared/log /srv/services/demo.team07/releases/20240430101616/log as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [b22582bb] Finished in 0.160 seconds with exit status 0 (successful).
+  INFO [d4c91540] Running /usr/bin/env rm -rf /srv/services/demo.team07/releases/20240430101616/tmp/pids as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [d4c91540] Finished in 0.207 seconds with exit status 0 (successful).
+  INFO [fcc442ab] Running /usr/bin/env ln -s /srv/services/demo.team07/shared/tmp/pids /srv/services/demo.team07/releases/20240430101616/tmp/pids as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [fcc442ab] Finished in 0.385 seconds with exit status 0 (successful).
+  INFO [14164908] Running /usr/bin/env ln -s /srv/services/demo.team07/shared/public/packs /srv/services/demo.team07/releases/20240430101616/public/packs as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [14164908] Finished in 0.201 seconds with exit status 0 (successful).
+  INFO [efa567a2] Running /usr/bin/env ln -s /srv/services/demo.team07/shared/node_modules /srv/services/demo.team07/releases/20240430101616/node_modules as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [efa567a2] Finished in 0.451 seconds with exit status 0 (successful).
+  INFO [edf52167] Running /usr/bin/env rm -rf /srv/services/demo.team07/releases/20240430101616/storage as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [edf52167] Finished in 0.160 seconds with exit status 0 (successful).
+  INFO [5b2ca05d] Running /usr/bin/env ln -s /srv/services/demo.team07/shared/storage /srv/services/demo.team07/releases/20240430101616/storage as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [5b2ca05d] Finished in 0.421 seconds with exit status 0 (successful).
+  INFO [452265bd] Running /usr/bin/env ln -s /srv/services/demo.team07/shared/public/assets /srv/services/demo.team07/releases/20240430101616/public/assets as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [452265bd] Finished in 0.394 seconds with exit status 0 (successful).
+  INFO [8058a670] Running /usr/local/rvm/bin/rvm ruby-3.1 do bundle config --local deployment true as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [8058a670] Finished in 1.280 seconds with exit status 0 (successful).
+  INFO [79db0b7c] Running /usr/local/rvm/bin/rvm ruby-3.1 do bundle config --local path /srv/services/demo.team07/shared/bundle as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [79db0b7c] Finished in 1.159 seconds with exit status 0 (successful).
+  INFO [8fad8821] Running /usr/local/rvm/bin/rvm ruby-3.1 do bundle config --local without development:test as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [8fad8821] Finished in 1.116 seconds with exit status 0 (successful).
+  INFO [035eda9a] Running /usr/local/rvm/bin/rvm ruby-3.1 do bundle install --jobs 4 --quiet as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [035eda9a] Finished in 39.289 seconds with exit status 0 (successful).
+  INFO [4f269012] Running /usr/local/rvm/bin/rvm ruby-3.1 do bundle exec rake assets:precompile as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [4f269012] Finished in 102.757 seconds with exit status 0 (successful).
+  INFO [deploy:migrate] Run `rake db:migrate`
+  INFO [db4f7041] Running /usr/local/rvm/bin/rvm ruby-3.1 do bundle exec rake db:migrate as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [db4f7041] Finished in 12.064 seconds with exit status 0 (successful).
+  INFO [e8a70848] Running /usr/local/rvm/bin/rvm ruby-3.1 do bundle exec whenever --update-crontab demo.team07-demo --set "environment=demo&delayed_job_args_p=demo.team07-demo&delayed_job_args_n=1" --roles=web,app,db  as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [e8a70848] Finished in 2.255 seconds with exit status 0 (successful).
+  INFO [7f881112] Running /usr/bin/env mkdir -p /srv/services/demo.team07/shared/monit as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [7f881112] Finished in 0.287 seconds with exit status 0 (successful).
+  INFO Uploading /srv/services/demo.team07/shared/monit/delayed_job.monitrc 100.0%
+  INFO [40e43b7c] Running /usr/bin/env sudo monit reload as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [40e43b7c] Finished in 0.408 seconds with exit status 0 (successful).
+  INFO [f88ca2e3] Running /usr/local/rvm/bin/rvm ruby-3.1 do bundle exec bin/delayed_job stop as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [f88ca2e3] Finished in 11.869 seconds with exit status 0 (successful).
+  INFO [6c856cf1] Running /usr/bin/env ln -s /srv/services/demo.team07/releases/20240430101616 /srv/services/demo.team07/releases/current as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [6c856cf1] Finished in 0.303 seconds with exit status 0 (successful).
+  INFO [9b3e6df0] Running /usr/bin/env mv /srv/services/demo.team07/releases/current /srv/services/demo.team07 as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [9b3e6df0] Finished in 0.693 seconds with exit status 0 (successful).
+  INFO [74326e9b] Running /usr/bin/env passenger-config restart-app /srv/services/demo.team07 --ignore-app-not-running as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [74326e9b] Finished in 0.723 seconds with exit status 0 (successful).
+  INFO [0f737f9c] Running /usr/local/rvm/bin/rvm ruby-3.1 do bundle exec bin/delayed_job -p demo.team07-demo -n 1 start as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [0f737f9c] Finished in 7.065 seconds with exit status 0 (successful).
+  INFO [adb43ef9] Running /usr/bin/env echo "Branch demo (at c8982d5ceb17e5741b3c874633fc42ed91d4ef16) deployed as release 20240430101616 by mizuuu" >> /srv/services/demo.team07/revisions.log as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [adb43ef9] Finished in 0.231 seconds with exit status 0 (successful).
+  INFO [0a143982] Running /usr/bin/env sudo monit -g demo.team07 monitor as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [0a143982] Finished in 0.169 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2024-05-03 11:05:50 +0100 cap demo deploy:seed
+  INFO ---------------------------------------------------------------------------
+  INFO [89f9bee3] Running /usr/local/rvm/bin/rvm ruby-3.1 do bundle exec rake db:seed as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [89f9bee3] Finished in 7.995 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2024-05-03 11:07:38 +0100 cap demo deploy target=latest
+  INFO ---------------------------------------------------------------------------
+  INFO [35071040] Running /usr/bin/env mkdir -p /tmp as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [35071040] Finished in 0.111 seconds with exit status 0 (successful).
+  INFO Uploading /tmp/git-ssh-f1c59569874c1460017c.sh 100.0%
+  INFO [bc73fd23] Running /usr/bin/env chmod 700 /tmp/git-ssh-f1c59569874c1460017c.sh as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [bc73fd23] Finished in 0.117 seconds with exit status 0 (successful).
+  INFO [1515a971] Running /usr/bin/env git ls-remote git@git.shefcompsci.org.uk:com3420-2023-24/team07/project.git HEAD as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [1515a971] Finished in 1.235 seconds with exit status 0 (successful).
+  INFO [4240e34a] Running /usr/bin/env mkdir -p /srv/services/demo.team07/shared /srv/services/demo.team07/releases as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [4240e34a] Finished in 0.118 seconds with exit status 0 (successful).
+  INFO [95bee3b3] Running /usr/bin/env mkdir -p /srv/services/demo.team07/shared/log /srv/services/demo.team07/shared/tmp/pids /srv/services/demo.team07/shared/public/packs /srv/services/demo.team07/shared/node_modules /srv/services/demo.team07/shared/storage /srv/services/demo.team07/shared/public/assets as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [95bee3b3] Finished in 0.119 seconds with exit status 0 (successful).
+  INFO [4b23b890] Running /usr/bin/env mkdir -p /srv/services/demo.team07/shared/config as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [4b23b890] Finished in 0.121 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /srv/services/demo.team07/repo
+  INFO [23e3f3bb] Running /usr/bin/env git remote set-url origin git@git.shefcompsci.org.uk:com3420-2023-24/team07/project.git as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [23e3f3bb] Finished in 0.135 seconds with exit status 0 (successful).
+  INFO [8678be6d] Running /usr/bin/env git remote update --prune as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [8678be6d] Finished in 1.993 seconds with exit status 0 (successful).
+  INFO [06073817] Running /usr/bin/env mkdir -p /srv/services/demo.team07/releases/20240503100741 as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [06073817] Finished in 0.120 seconds with exit status 0 (successful).
+  INFO [3bf5659a] Running /usr/bin/env git archive demo | /usr/bin/env tar -x -f - -C /srv/services/demo.team07/releases/20240503100741 as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [3bf5659a] Finished in 1.520 seconds with exit status 0 (successful).
+  INFO [7fc631c7] Running /usr/bin/env sudo monit -g demo.team07 unmonitor as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [7fc631c7] Finished in 0.147 seconds with exit status 0 (successful).
+  INFO [8ebb4b02] Running /usr/bin/env echo "7da5d1704c99df81e5222572c58c26029e3be8c5" > REVISION as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [8ebb4b02] Finished in 0.127 seconds with exit status 0 (successful).
+  INFO [d5e898d5] Running /usr/bin/env mkdir -p /srv/services/demo.team07/releases/20240503100741/config as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [d5e898d5] Finished in 0.110 seconds with exit status 0 (successful).
+  INFO [546cc1af] Running /usr/bin/env ln -s /srv/services/demo.team07/shared/config/database.yml /srv/services/demo.team07/releases/20240503100741/config/database.yml as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [546cc1af] Finished in 0.116 seconds with exit status 0 (successful).
+  INFO [dd219914] Running /usr/bin/env rm /srv/services/demo.team07/releases/20240503100741/config/secrets.yml as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [dd219914] Finished in 0.114 seconds with exit status 0 (successful).
+  INFO [be5abe83] Running /usr/bin/env ln -s /srv/services/demo.team07/shared/config/secrets.yml /srv/services/demo.team07/releases/20240503100741/config/secrets.yml as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [be5abe83] Finished in 0.116 seconds with exit status 0 (successful).
+  INFO [dd571116] Running /usr/bin/env mkdir -p /srv/services/demo.team07/releases/20240503100741 /srv/services/demo.team07/releases/20240503100741/tmp /srv/services/demo.team07/releases/20240503100741/public as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [dd571116] Finished in 0.128 seconds with exit status 0 (successful).
+  INFO [b50c9514] Running /usr/bin/env rm -rf /srv/services/demo.team07/releases/20240503100741/log as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [b50c9514] Finished in 0.118 seconds with exit status 0 (successful).
+  INFO [721c2d7a] Running /usr/bin/env ln -s /srv/services/demo.team07/shared/log /srv/services/demo.team07/releases/20240503100741/log as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [721c2d7a] Finished in 0.112 seconds with exit status 0 (successful).
+  INFO [7b88518a] Running /usr/bin/env rm -rf /srv/services/demo.team07/releases/20240503100741/tmp/pids as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [7b88518a] Finished in 0.125 seconds with exit status 0 (successful).
+  INFO [a717c905] Running /usr/bin/env ln -s /srv/services/demo.team07/shared/tmp/pids /srv/services/demo.team07/releases/20240503100741/tmp/pids as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [a717c905] Finished in 0.111 seconds with exit status 0 (successful).
+  INFO [55413aca] Running /usr/bin/env ln -s /srv/services/demo.team07/shared/public/packs /srv/services/demo.team07/releases/20240503100741/public/packs as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [55413aca] Finished in 0.110 seconds with exit status 0 (successful).
+  INFO [ba4e6286] Running /usr/bin/env ln -s /srv/services/demo.team07/shared/node_modules /srv/services/demo.team07/releases/20240503100741/node_modules as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [ba4e6286] Finished in 0.108 seconds with exit status 0 (successful).
+  INFO [031df61b] Running /usr/bin/env rm -rf /srv/services/demo.team07/releases/20240503100741/storage as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [031df61b] Finished in 0.112 seconds with exit status 0 (successful).
+  INFO [93ee1653] Running /usr/bin/env ln -s /srv/services/demo.team07/shared/storage /srv/services/demo.team07/releases/20240503100741/storage as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [93ee1653] Finished in 0.110 seconds with exit status 0 (successful).
+  INFO [676a91e4] Running /usr/bin/env ln -s /srv/services/demo.team07/shared/public/assets /srv/services/demo.team07/releases/20240503100741/public/assets as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [676a91e4] Finished in 0.118 seconds with exit status 0 (successful).
+  INFO [10bfa287] Running /usr/local/rvm/bin/rvm ruby-3.1 do bundle config --local deployment true as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [10bfa287] Finished in 1.028 seconds with exit status 0 (successful).
+  INFO [8133059e] Running /usr/local/rvm/bin/rvm ruby-3.1 do bundle config --local path /srv/services/demo.team07/shared/bundle as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [8133059e] Finished in 0.984 seconds with exit status 0 (successful).
+  INFO [867a48cd] Running /usr/local/rvm/bin/rvm ruby-3.1 do bundle config --local without development:test as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [867a48cd] Finished in 1.510 seconds with exit status 0 (successful).
+  INFO The Gemfile's dependencies are satisfied, skipping installation
+  INFO [1b8f9386] Running /usr/local/rvm/bin/rvm ruby-3.1 do bundle exec rake assets:precompile as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [1b8f9386] Finished in 40.867 seconds with exit status 0 (successful).
+  INFO [deploy:migrate] Run `rake db:migrate`
+  INFO [32ade51b] Running /usr/local/rvm/bin/rvm ruby-3.1 do bundle exec rake db:migrate as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [32ade51b] Finished in 9.836 seconds with exit status 0 (successful).
+  INFO [fa6f2bcd] Running /usr/local/rvm/bin/rvm ruby-3.1 do bundle exec whenever --update-crontab demo.team07-demo --set "environment=demo&delayed_job_args_p=demo.team07-demo&delayed_job_args_n=1" --roles=web,app,db  as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [fa6f2bcd] Finished in 1.984 seconds with exit status 0 (successful).
+  INFO [21d5fa96] Running /usr/bin/env mkdir -p /srv/services/demo.team07/shared/monit as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [21d5fa96] Finished in 0.116 seconds with exit status 0 (successful).
+  INFO Uploading /srv/services/demo.team07/shared/monit/delayed_job.monitrc 100.0%
+  INFO [ee499ce1] Running /usr/bin/env sudo monit reload as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [ee499ce1] Finished in 0.143 seconds with exit status 0 (successful).
+  INFO [0b947c37] Running /usr/local/rvm/bin/rvm ruby-3.1 do bundle exec bin/delayed_job stop as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [0b947c37] Finished in 15.313 seconds with exit status 0 (successful).
+  INFO [e7f3bcf2] Running /usr/bin/env ln -s /srv/services/demo.team07/releases/20240503100741 /srv/services/demo.team07/releases/current as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [e7f3bcf2] Finished in 0.109 seconds with exit status 0 (successful).
+  INFO [01a3aa11] Running /usr/bin/env mv /srv/services/demo.team07/releases/current /srv/services/demo.team07 as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [01a3aa11] Finished in 0.117 seconds with exit status 0 (successful).
+  INFO [a34385a0] Running /usr/bin/env passenger-config restart-app /srv/services/demo.team07 --ignore-app-not-running as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [a34385a0] Finished in 0.315 seconds with exit status 0 (successful).
+  INFO Keeping 2 of 2 deployed releases on epi-stu-hut-demo1.shef.ac.uk
+  INFO No old releases (keeping newest 2) on epi-stu-hut-demo1.shef.ac.uk
+  INFO [229d6f70] Running /usr/local/rvm/bin/rvm ruby-3.1 do bundle exec bin/delayed_job -p demo.team07-demo -n 1 start as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [229d6f70] Finished in 7.056 seconds with exit status 0 (successful).
+  INFO [d921c3a4] Running /usr/bin/env echo "Branch demo (at 7da5d1704c99df81e5222572c58c26029e3be8c5) deployed as release 20240503100741 by mizuuu" >> /srv/services/demo.team07/revisions.log as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [d921c3a4] Finished in 0.125 seconds with exit status 0 (successful).
+  INFO [947ee247] Running /usr/bin/env sudo monit -g demo.team07 monitor as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [947ee247] Finished in 0.136 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2024-05-03 11:09:56 +0100 cap demo deploy:seed
+  INFO ---------------------------------------------------------------------------
+  INFO [afa1c9a3] Running /usr/local/rvm/bin/rvm ruby-3.1 do bundle exec rake db:seed as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [afa1c9a3] Finished in 7.024 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2024-05-03 11:13:27 +0100 cap demo deploy target=latest
+  INFO ---------------------------------------------------------------------------
+  INFO [893a2b62] Running /usr/bin/env mkdir -p /tmp as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [893a2b62] Finished in 0.115 seconds with exit status 0 (successful).
+  INFO Uploading /tmp/git-ssh-d13638e339423f928766.sh 100.0%
+  INFO [baf5703a] Running /usr/bin/env chmod 700 /tmp/git-ssh-d13638e339423f928766.sh as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [baf5703a] Finished in 0.115 seconds with exit status 0 (successful).
+  INFO [563fa736] Running /usr/bin/env git ls-remote git@git.shefcompsci.org.uk:com3420-2023-24/team07/project.git HEAD as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [563fa736] Finished in 1.238 seconds with exit status 0 (successful).
+  INFO [917ebd7b] Running /usr/bin/env mkdir -p /srv/services/demo.team07/shared /srv/services/demo.team07/releases as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [917ebd7b] Finished in 0.128 seconds with exit status 0 (successful).
+  INFO [89873c1c] Running /usr/bin/env mkdir -p /srv/services/demo.team07/shared/log /srv/services/demo.team07/shared/tmp/pids /srv/services/demo.team07/shared/public/packs /srv/services/demo.team07/shared/node_modules /srv/services/demo.team07/shared/storage /srv/services/demo.team07/shared/public/assets as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [89873c1c] Finished in 0.128 seconds with exit status 0 (successful).
+  INFO [6d441b61] Running /usr/bin/env mkdir -p /srv/services/demo.team07/shared/config as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [6d441b61] Finished in 0.111 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /srv/services/demo.team07/repo
+  INFO [61398f11] Running /usr/bin/env git remote set-url origin git@git.shefcompsci.org.uk:com3420-2023-24/team07/project.git as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [61398f11] Finished in 0.129 seconds with exit status 0 (successful).
+  INFO [16bc035d] Running /usr/bin/env git remote update --prune as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [16bc035d] Finished in 1.585 seconds with exit status 0 (successful).
+  INFO [8607fcf2] Running /usr/bin/env mkdir -p /srv/services/demo.team07/releases/20240503101331 as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [8607fcf2] Finished in 0.121 seconds with exit status 0 (successful).
+  INFO [3e3b1518] Running /usr/bin/env git archive demo | /usr/bin/env tar -x -f - -C /srv/services/demo.team07/releases/20240503101331 as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [3e3b1518] Finished in 1.713 seconds with exit status 0 (successful).
+  INFO [e9de283b] Running /usr/bin/env sudo monit -g demo.team07 unmonitor as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [e9de283b] Finished in 0.154 seconds with exit status 0 (successful).
+  INFO [f8b7d806] Running /usr/bin/env echo "a16919200c64b362c1ae379888fffe566febb0cc" > REVISION as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [f8b7d806] Finished in 0.128 seconds with exit status 0 (successful).
+  INFO [53123580] Running /usr/bin/env mkdir -p /srv/services/demo.team07/releases/20240503101331/config as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [53123580] Finished in 0.128 seconds with exit status 0 (successful).
+  INFO [b43693b4] Running /usr/bin/env ln -s /srv/services/demo.team07/shared/config/database.yml /srv/services/demo.team07/releases/20240503101331/config/database.yml as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [b43693b4] Finished in 0.128 seconds with exit status 0 (successful).
+  INFO [0984d45c] Running /usr/bin/env rm /srv/services/demo.team07/releases/20240503101331/config/secrets.yml as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [0984d45c] Finished in 0.121 seconds with exit status 0 (successful).
+  INFO [95d1e485] Running /usr/bin/env ln -s /srv/services/demo.team07/shared/config/secrets.yml /srv/services/demo.team07/releases/20240503101331/config/secrets.yml as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [95d1e485] Finished in 0.117 seconds with exit status 0 (successful).
+  INFO [a084dde3] Running /usr/bin/env mkdir -p /srv/services/demo.team07/releases/20240503101331 /srv/services/demo.team07/releases/20240503101331/tmp /srv/services/demo.team07/releases/20240503101331/public as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [a084dde3] Finished in 0.126 seconds with exit status 0 (successful).
+  INFO [296cb946] Running /usr/bin/env rm -rf /srv/services/demo.team07/releases/20240503101331/log as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [296cb946] Finished in 0.116 seconds with exit status 0 (successful).
+  INFO [140b9681] Running /usr/bin/env ln -s /srv/services/demo.team07/shared/log /srv/services/demo.team07/releases/20240503101331/log as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [140b9681] Finished in 0.122 seconds with exit status 0 (successful).
+  INFO [db80c2ff] Running /usr/bin/env rm -rf /srv/services/demo.team07/releases/20240503101331/tmp/pids as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [db80c2ff] Finished in 0.119 seconds with exit status 0 (successful).
+  INFO [36840516] Running /usr/bin/env ln -s /srv/services/demo.team07/shared/tmp/pids /srv/services/demo.team07/releases/20240503101331/tmp/pids as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [36840516] Finished in 0.114 seconds with exit status 0 (successful).
+  INFO [2d091722] Running /usr/bin/env ln -s /srv/services/demo.team07/shared/public/packs /srv/services/demo.team07/releases/20240503101331/public/packs as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [2d091722] Finished in 0.121 seconds with exit status 0 (successful).
+  INFO [3d1bd15f] Running /usr/bin/env ln -s /srv/services/demo.team07/shared/node_modules /srv/services/demo.team07/releases/20240503101331/node_modules as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [3d1bd15f] Finished in 0.161 seconds with exit status 0 (successful).
+  INFO [04a7b221] Running /usr/bin/env rm -rf /srv/services/demo.team07/releases/20240503101331/storage as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [04a7b221] Finished in 0.121 seconds with exit status 0 (successful).
+  INFO [3f2083e0] Running /usr/bin/env ln -s /srv/services/demo.team07/shared/storage /srv/services/demo.team07/releases/20240503101331/storage as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [3f2083e0] Finished in 0.175 seconds with exit status 0 (successful).
+  INFO [643a1eb8] Running /usr/bin/env ln -s /srv/services/demo.team07/shared/public/assets /srv/services/demo.team07/releases/20240503101331/public/assets as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [643a1eb8] Finished in 0.120 seconds with exit status 0 (successful).
+  INFO [06ae7883] Running /usr/local/rvm/bin/rvm ruby-3.1 do bundle config --local deployment true as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [06ae7883] Finished in 1.223 seconds with exit status 0 (successful).
+  INFO [fa8ce033] Running /usr/local/rvm/bin/rvm ruby-3.1 do bundle config --local path /srv/services/demo.team07/shared/bundle as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [fa8ce033] Finished in 1.103 seconds with exit status 0 (successful).
+  INFO [2391401d] Running /usr/local/rvm/bin/rvm ruby-3.1 do bundle config --local without development:test as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [2391401d] Finished in 1.514 seconds with exit status 0 (successful).
+  INFO The Gemfile's dependencies are satisfied, skipping installation
+  INFO [0814a392] Running /usr/local/rvm/bin/rvm ruby-3.1 do bundle exec rake assets:precompile as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [0814a392] Finished in 40.006 seconds with exit status 0 (successful).
+  INFO [deploy:migrate] Run `rake db:migrate`
+  INFO [0150c012] Running /usr/local/rvm/bin/rvm ruby-3.1 do bundle exec rake db:migrate as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO ---------------------------------------------------------------------------
+  INFO START 2024-05-03 11:15:57 +0100 cap demo deploy target=latest
+  INFO ---------------------------------------------------------------------------
+  INFO [a5058000] Running /usr/bin/env mkdir -p /tmp as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [a5058000] Finished in 0.117 seconds with exit status 0 (successful).
+  INFO Uploading /tmp/git-ssh-8acbdc7d268ddadc0c6b.sh 100.0%
+  INFO [08ad55a5] Running /usr/bin/env chmod 700 /tmp/git-ssh-8acbdc7d268ddadc0c6b.sh as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [08ad55a5] Finished in 0.118 seconds with exit status 0 (successful).
+  INFO [850c1305] Running /usr/bin/env git ls-remote git@git.shefcompsci.org.uk:com3420-2023-24/team07/project.git HEAD as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [850c1305] Finished in 1.241 seconds with exit status 0 (successful).
+  INFO [69dab799] Running /usr/bin/env mkdir -p /srv/services/demo.team07/shared /srv/services/demo.team07/releases as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [69dab799] Finished in 0.120 seconds with exit status 0 (successful).
+  INFO [fee7f5e0] Running /usr/bin/env mkdir -p /srv/services/demo.team07/shared/log /srv/services/demo.team07/shared/tmp/pids /srv/services/demo.team07/shared/public/packs /srv/services/demo.team07/shared/node_modules /srv/services/demo.team07/shared/storage /srv/services/demo.team07/shared/public/assets as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [fee7f5e0] Finished in 0.120 seconds with exit status 0 (successful).
+  INFO [cbe4e0ba] Running /usr/bin/env mkdir -p /srv/services/demo.team07/shared/config as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [cbe4e0ba] Finished in 0.117 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /srv/services/demo.team07/repo
+  INFO [428b0c1e] Running /usr/bin/env git remote set-url origin git@git.shefcompsci.org.uk:com3420-2023-24/team07/project.git as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [428b0c1e] Finished in 0.126 seconds with exit status 0 (successful).
+  INFO [1b8d88aa] Running /usr/bin/env git remote update --prune as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [1b8d88aa] Finished in 1.598 seconds with exit status 0 (successful).
+  INFO [d3620085] Running /usr/bin/env mkdir -p /srv/services/demo.team07/releases/20240503101601 as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [d3620085] Finished in 0.121 seconds with exit status 0 (successful).
+  INFO [ef3b63ee] Running /usr/bin/env git archive demo | /usr/bin/env tar -x -f - -C /srv/services/demo.team07/releases/20240503101601 as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [ef3b63ee] Finished in 1.920 seconds with exit status 0 (successful).
+  INFO [9fafa28a] Running /usr/bin/env sudo monit -g demo.team07 unmonitor as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [9fafa28a] Finished in 0.138 seconds with exit status 0 (successful).
+  INFO [c4de221d] Running /usr/bin/env echo "950521d270790c9ffa87dbd8924e3d5b60fc3110" > REVISION as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [c4de221d] Finished in 0.121 seconds with exit status 0 (successful).
+  INFO [f98f2df5] Running /usr/bin/env mkdir -p /srv/services/demo.team07/releases/20240503101601/config as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [f98f2df5] Finished in 0.119 seconds with exit status 0 (successful).
+  INFO [7e39f066] Running /usr/bin/env ln -s /srv/services/demo.team07/shared/config/database.yml /srv/services/demo.team07/releases/20240503101601/config/database.yml as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [7e39f066] Finished in 0.117 seconds with exit status 0 (successful).
+  INFO [d567e7dc] Running /usr/bin/env rm /srv/services/demo.team07/releases/20240503101601/config/secrets.yml as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [d567e7dc] Finished in 0.120 seconds with exit status 0 (successful).
+  INFO [562e2c2c] Running /usr/bin/env ln -s /srv/services/demo.team07/shared/config/secrets.yml /srv/services/demo.team07/releases/20240503101601/config/secrets.yml as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [562e2c2c] Finished in 0.140 seconds with exit status 0 (successful).
+  INFO [5b79e0e6] Running /usr/bin/env mkdir -p /srv/services/demo.team07/releases/20240503101601 /srv/services/demo.team07/releases/20240503101601/tmp /srv/services/demo.team07/releases/20240503101601/public as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [5b79e0e6] Finished in 0.123 seconds with exit status 0 (successful).
+  INFO [ff6c4bf2] Running /usr/bin/env rm -rf /srv/services/demo.team07/releases/20240503101601/log as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [ff6c4bf2] Finished in 0.123 seconds with exit status 0 (successful).
+  INFO [57d18161] Running /usr/bin/env ln -s /srv/services/demo.team07/shared/log /srv/services/demo.team07/releases/20240503101601/log as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [57d18161] Finished in 0.119 seconds with exit status 0 (successful).
+  INFO [5314f9ce] Running /usr/bin/env rm -rf /srv/services/demo.team07/releases/20240503101601/tmp/pids as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [5314f9ce] Finished in 0.121 seconds with exit status 0 (successful).
+  INFO [cde65f66] Running /usr/bin/env ln -s /srv/services/demo.team07/shared/tmp/pids /srv/services/demo.team07/releases/20240503101601/tmp/pids as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [cde65f66] Finished in 0.119 seconds with exit status 0 (successful).
+  INFO [07053de3] Running /usr/bin/env ln -s /srv/services/demo.team07/shared/public/packs /srv/services/demo.team07/releases/20240503101601/public/packs as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [07053de3] Finished in 0.119 seconds with exit status 0 (successful).
+  INFO [3aa62f48] Running /usr/bin/env ln -s /srv/services/demo.team07/shared/node_modules /srv/services/demo.team07/releases/20240503101601/node_modules as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [3aa62f48] Finished in 0.116 seconds with exit status 0 (successful).
+  INFO [c4bb3f17] Running /usr/bin/env rm -rf /srv/services/demo.team07/releases/20240503101601/storage as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [c4bb3f17] Finished in 0.123 seconds with exit status 0 (successful).
+  INFO [494de473] Running /usr/bin/env ln -s /srv/services/demo.team07/shared/storage /srv/services/demo.team07/releases/20240503101601/storage as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [494de473] Finished in 0.116 seconds with exit status 0 (successful).
+  INFO [d21709ee] Running /usr/bin/env ln -s /srv/services/demo.team07/shared/public/assets /srv/services/demo.team07/releases/20240503101601/public/assets as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [d21709ee] Finished in 0.157 seconds with exit status 0 (successful).
+  INFO [1a31ba61] Running /usr/local/rvm/bin/rvm ruby-3.1 do bundle config --local deployment true as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [1a31ba61] Finished in 1.072 seconds with exit status 0 (successful).
+  INFO [45860a76] Running /usr/local/rvm/bin/rvm ruby-3.1 do bundle config --local path /srv/services/demo.team07/shared/bundle as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [45860a76] Finished in 1.096 seconds with exit status 0 (successful).
+  INFO [f8cddead] Running /usr/local/rvm/bin/rvm ruby-3.1 do bundle config --local without development:test as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [f8cddead] Finished in 1.556 seconds with exit status 0 (successful).
+  INFO The Gemfile's dependencies are satisfied, skipping installation
+  INFO [c8d958ae] Running /usr/local/rvm/bin/rvm ruby-3.1 do bundle exec rake assets:precompile as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [c8d958ae] Finished in 57.481 seconds with exit status 0 (successful).
+  INFO [deploy:migrate] Run `rake db:migrate`
+  INFO [755852d6] Running /usr/local/rvm/bin/rvm ruby-3.1 do bundle exec rake db:migrate as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [755852d6] Finished in 14.626 seconds with exit status 0 (successful).
+  INFO [c82c2aa2] Running /usr/local/rvm/bin/rvm ruby-3.1 do bundle exec whenever --update-crontab demo.team07-demo --set "environment=demo&delayed_job_args_p=demo.team07-demo&delayed_job_args_n=1" --roles=web,app,db  as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [c82c2aa2] Finished in 1.851 seconds with exit status 0 (successful).
+  INFO [96f5f9e5] Running /usr/bin/env mkdir -p /srv/services/demo.team07/shared/monit as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [96f5f9e5] Finished in 0.123 seconds with exit status 0 (successful).
+  INFO Uploading /srv/services/demo.team07/shared/monit/delayed_job.monitrc 100.0%
+  INFO [d95eb785] Running /usr/bin/env sudo monit reload as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [d95eb785] Finished in 0.146 seconds with exit status 0 (successful).
+  INFO [e9cde6c8] Running /usr/local/rvm/bin/rvm ruby-3.1 do bundle exec bin/delayed_job stop as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [e9cde6c8] Finished in 11.465 seconds with exit status 0 (successful).
+  INFO [94c1dc0e] Running /usr/bin/env ln -s /srv/services/demo.team07/releases/20240503101601 /srv/services/demo.team07/releases/current as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [94c1dc0e] Finished in 0.114 seconds with exit status 0 (successful).
+  INFO [160c2d9f] Running /usr/bin/env mv /srv/services/demo.team07/releases/current /srv/services/demo.team07 as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [160c2d9f] Finished in 0.115 seconds with exit status 0 (successful).
+  INFO [3a73be3e] Running /usr/bin/env passenger-config restart-app /srv/services/demo.team07 --ignore-app-not-running as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [3a73be3e] Finished in 0.318 seconds with exit status 0 (successful).
+  INFO Keeping 2 of 4 deployed releases on epi-stu-hut-demo1.shef.ac.uk
+  INFO [65af87d2] Running /usr/bin/env rm -rf /srv/services/demo.team07/releases/20240430101616 /srv/services/demo.team07/releases/20240503100741 as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [65af87d2] Finished in 5.694 seconds with exit status 0 (successful).
+  INFO [948e5204] Running /usr/local/rvm/bin/rvm ruby-3.1 do bundle exec bin/delayed_job -p demo.team07-demo -n 1 start as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [948e5204] Finished in 6.960 seconds with exit status 0 (successful).
+  INFO [2491465c] Running /usr/bin/env echo "Branch demo (at 950521d270790c9ffa87dbd8924e3d5b60fc3110) deployed as release 20240503101601 by mizuuu" >> /srv/services/demo.team07/revisions.log as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [2491465c] Finished in 0.113 seconds with exit status 0 (successful).
+  INFO [cb7a5ecc] Running /usr/bin/env sudo monit -g demo.team07 monitor as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [cb7a5ecc] Finished in 0.128 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2024-05-03 11:18:28 +0100 cap demo deploy:seed
+  INFO ---------------------------------------------------------------------------
+  INFO [e45d2ace] Running /usr/local/rvm/bin/rvm ruby-3.1 do bundle exec rake db:seed as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [e45d2ace] Finished in 8.573 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2024-05-15 09:55:00 +0100 cap demo deploy target=latest
+  INFO ---------------------------------------------------------------------------
+  INFO ---------------------------------------------------------------------------
+  INFO START 2024-05-15 09:58:57 +0100 cap demo deploy target=latest
+  INFO ---------------------------------------------------------------------------
+  INFO [87f7a374] Running /usr/bin/env mkdir -p /tmp as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [87f7a374] Finished in 0.066 seconds with exit status 0 (successful).
+  INFO Uploading /tmp/git-ssh-661ad80d681c23d2dfdd.sh 100.0%
+  INFO [88e87ae8] Running /usr/bin/env chmod 700 /tmp/git-ssh-661ad80d681c23d2dfdd.sh as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [88e87ae8] Finished in 0.079 seconds with exit status 0 (successful).
+  INFO [d728a9cf] Running /usr/bin/env git ls-remote git@git.shefcompsci.org.uk:com3420-2023-24/team07/project.git HEAD as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [d728a9cf] Finished in 1.389 seconds with exit status 0 (successful).
+  INFO [53059afb] Running /usr/bin/env mkdir -p /srv/services/demo.team07/shared /srv/services/demo.team07/releases as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [53059afb] Finished in 0.076 seconds with exit status 0 (successful).
+  INFO [efcc2623] Running /usr/bin/env mkdir -p /srv/services/demo.team07/shared/log /srv/services/demo.team07/shared/tmp/pids /srv/services/demo.team07/shared/public/packs /srv/services/demo.team07/shared/node_modules /srv/services/demo.team07/shared/storage /srv/services/demo.team07/shared/public/assets as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [efcc2623] Finished in 0.081 seconds with exit status 0 (successful).
+  INFO [9c927161] Running /usr/bin/env mkdir -p /srv/services/demo.team07/shared/config as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [9c927161] Finished in 0.074 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /srv/services/demo.team07/repo
+  INFO [97b2c304] Running /usr/bin/env git remote set-url origin git@git.shefcompsci.org.uk:com3420-2023-24/team07/project.git as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [97b2c304] Finished in 0.082 seconds with exit status 0 (successful).
+  INFO [9264797a] Running /usr/bin/env git remote update --prune as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [9264797a] Finished in 2.102 seconds with exit status 0 (successful).
+  INFO [6630cfd0] Running /usr/bin/env mkdir -p /srv/services/demo.team07/releases/20240515085900 as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [6630cfd0] Finished in 0.077 seconds with exit status 0 (successful).
+  INFO [ab09fd63] Running /usr/bin/env git archive demo | /usr/bin/env tar -x -f - -C /srv/services/demo.team07/releases/20240515085900 as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [ab09fd63] Finished in 1.569 seconds with exit status 0 (successful).
+  INFO [89eafe39] Running /usr/bin/env sudo monit -g demo.team07 unmonitor as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [89eafe39] Finished in 0.093 seconds with exit status 0 (successful).
+  INFO [9108e950] Running /usr/bin/env echo "aeb867ba90c82921de5f0d07796308f9325934b4" > REVISION as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [9108e950] Finished in 0.080 seconds with exit status 0 (successful).
+  INFO [13b21cfc] Running /usr/bin/env mkdir -p /srv/services/demo.team07/releases/20240515085900/config as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [13b21cfc] Finished in 0.084 seconds with exit status 0 (successful).
+  INFO [0b2ec861] Running /usr/bin/env ln -s /srv/services/demo.team07/shared/config/database.yml /srv/services/demo.team07/releases/20240515085900/config/database.yml as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [0b2ec861] Finished in 0.071 seconds with exit status 0 (successful).
+  INFO [c357742a] Running /usr/bin/env rm /srv/services/demo.team07/releases/20240515085900/config/secrets.yml as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [c357742a] Finished in 0.071 seconds with exit status 0 (successful).
+  INFO [b9e3fa17] Running /usr/bin/env ln -s /srv/services/demo.team07/shared/config/secrets.yml /srv/services/demo.team07/releases/20240515085900/config/secrets.yml as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [b9e3fa17] Finished in 0.072 seconds with exit status 0 (successful).
+  INFO [97394b1d] Running /usr/bin/env mkdir -p /srv/services/demo.team07/releases/20240515085900 /srv/services/demo.team07/releases/20240515085900/tmp /srv/services/demo.team07/releases/20240515085900/public as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [97394b1d] Finished in 0.072 seconds with exit status 0 (successful).
+  INFO [68246e2a] Running /usr/bin/env rm -rf /srv/services/demo.team07/releases/20240515085900/log as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [68246e2a] Finished in 0.076 seconds with exit status 0 (successful).
+  INFO [78117988] Running /usr/bin/env ln -s /srv/services/demo.team07/shared/log /srv/services/demo.team07/releases/20240515085900/log as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [78117988] Finished in 0.077 seconds with exit status 0 (successful).
+  INFO [1d741966] Running /usr/bin/env rm -rf /srv/services/demo.team07/releases/20240515085900/tmp/pids as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [1d741966] Finished in 0.077 seconds with exit status 0 (successful).
+  INFO [c9e8b6cb] Running /usr/bin/env ln -s /srv/services/demo.team07/shared/tmp/pids /srv/services/demo.team07/releases/20240515085900/tmp/pids as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [c9e8b6cb] Finished in 0.076 seconds with exit status 0 (successful).
+  INFO [9bc82103] Running /usr/bin/env ln -s /srv/services/demo.team07/shared/public/packs /srv/services/demo.team07/releases/20240515085900/public/packs as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [9bc82103] Finished in 0.070 seconds with exit status 0 (successful).
+  INFO [cfa98aca] Running /usr/bin/env ln -s /srv/services/demo.team07/shared/node_modules /srv/services/demo.team07/releases/20240515085900/node_modules as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [cfa98aca] Finished in 0.077 seconds with exit status 0 (successful).
+  INFO [27e1140e] Running /usr/bin/env rm -rf /srv/services/demo.team07/releases/20240515085900/storage as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [27e1140e] Finished in 0.079 seconds with exit status 0 (successful).
+  INFO [71d52434] Running /usr/bin/env ln -s /srv/services/demo.team07/shared/storage /srv/services/demo.team07/releases/20240515085900/storage as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [71d52434] Finished in 0.072 seconds with exit status 0 (successful).
+  INFO [aba4d76b] Running /usr/bin/env ln -s /srv/services/demo.team07/shared/public/assets /srv/services/demo.team07/releases/20240515085900/public/assets as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [aba4d76b] Finished in 0.072 seconds with exit status 0 (successful).
+  INFO [7b5fd244] Running /usr/local/rvm/bin/rvm ruby-3.1 do bundle config --local deployment true as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [7b5fd244] Finished in 1.212 seconds with exit status 0 (successful).
+  INFO [3176c843] Running /usr/local/rvm/bin/rvm ruby-3.1 do bundle config --local path /srv/services/demo.team07/shared/bundle as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [3176c843] Finished in 1.129 seconds with exit status 0 (successful).
+  INFO [d1558e77] Running /usr/local/rvm/bin/rvm ruby-3.1 do bundle config --local without development:test as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [d1558e77] Finished in 1.782 seconds with exit status 0 (successful).
+  INFO The Gemfile's dependencies are satisfied, skipping installation
+  INFO [10eb9f09] Running /usr/local/rvm/bin/rvm ruby-3.1 do bundle exec rake assets:precompile as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [10eb9f09] Finished in 48.755 seconds with exit status 0 (successful).
+  INFO [deploy:migrate] Run `rake db:migrate`
+  INFO [c163ea32] Running /usr/local/rvm/bin/rvm ruby-3.1 do bundle exec rake db:migrate as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [c163ea32] Finished in 10.085 seconds with exit status 0 (successful).
+  INFO [df0b2e61] Running /usr/local/rvm/bin/rvm ruby-3.1 do bundle exec whenever --update-crontab demo.team07-demo --set "environment=demo&delayed_job_args_p=demo.team07-demo&delayed_job_args_n=1" --roles=web,app,db  as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [df0b2e61] Finished in 2.190 seconds with exit status 0 (successful).
+  INFO [10b7c7bb] Running /usr/bin/env mkdir -p /srv/services/demo.team07/shared/monit as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [10b7c7bb] Finished in 0.073 seconds with exit status 0 (successful).
+  INFO Uploading /srv/services/demo.team07/shared/monit/delayed_job.monitrc 100.0%
+  INFO [fc25022b] Running /usr/bin/env sudo monit reload as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [fc25022b] Finished in 0.098 seconds with exit status 0 (successful).
+  INFO [cf0c03a3] Running /usr/local/rvm/bin/rvm ruby-3.1 do bundle exec bin/delayed_job stop as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [cf0c03a3] Finished in 16.961 seconds with exit status 0 (successful).
+  INFO [30d10130] Running /usr/bin/env ln -s /srv/services/demo.team07/releases/20240515085900 /srv/services/demo.team07/releases/current as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [30d10130] Finished in 0.114 seconds with exit status 0 (successful).
+  INFO [a5641ab5] Running /usr/bin/env mv /srv/services/demo.team07/releases/current /srv/services/demo.team07 as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [a5641ab5] Finished in 0.079 seconds with exit status 0 (successful).
+  INFO [819b63d6] Running /usr/bin/env passenger-config restart-app /srv/services/demo.team07 --ignore-app-not-running as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [819b63d6] Finished in 0.294 seconds with exit status 0 (successful).
+  INFO Keeping 2 of 3 deployed releases on epi-stu-hut-demo1.shef.ac.uk
+  INFO [116282e8] Running /usr/bin/env rm -rf /srv/services/demo.team07/releases/20240503101331 as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [116282e8] Finished in 4.088 seconds with exit status 0 (successful).
+  INFO [ac1e4f7f] Running /usr/local/rvm/bin/rvm ruby-3.1 do bundle exec bin/delayed_job -p demo.team07-demo -n 1 start as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [ac1e4f7f] Finished in 9.563 seconds with exit status 0 (successful).
+  INFO [a69da6ff] Running /usr/bin/env echo "Branch demo (at aeb867ba90c82921de5f0d07796308f9325934b4) deployed as release 20240515085900 by mizuuu" >> /srv/services/demo.team07/revisions.log as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [a69da6ff] Finished in 0.095 seconds with exit status 0 (successful).
+  INFO [9a959fd7] Running /usr/bin/env sudo monit -g demo.team07 monitor as demo.team07@epi-stu-hut-demo1.shef.ac.uk
+  INFO [9a959fd7] Finished in 0.106 seconds with exit status 0 (successful).

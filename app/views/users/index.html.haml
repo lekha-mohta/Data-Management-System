@@ -1,0 +1,49 @@
+.card.mb-3
+  .card-header.d-flex.align-items-center
+    %span User Roles
+
+  #filterOptions.show
+    .card-body
+      = form_tag request.fullpath, method: :get, class: 'd-flex flex-column px-2' do 
+        .row
+          .form-group.col-md-4.mb-2
+            = label_tag :givenname, "Name:"
+            = text_field_tag :givenname, params[:givenname], class: 'form-control', placeholder: 'Name'
+
+          .form-group.col.md-4.mb-2 
+            = label_tag :email, "Email Address"
+            = text_field_tag :email, params[:email], class: 'form-control', placeholder: 'Email Address'
+
+          .form-group.col-md-4.mb-2
+            = label_tag :role, "Role"
+            = select_tag :role, options_for_select([['Any', 'any'], ['User', 'user'], ['Student', 'student'], ['Staff', 'staff'], ['Admin', 'admin']], params[:role]), class: 'form-select'
+
+        .d-flex.justify-content-between.mt-2
+          = submit_tag "Search", class: 'btn btn-primary'
+          = link_to "Clear", users_path, class: 'btn btn-secondary'
+
+        
+.card.mb-2
+  .card-header.d-flex.align-items-center
+    %span Listing Users
+
+  %table.table.table-striped.table-hover
+    %thead.table-secondary
+      %tr
+        %th
+          Name
+        %th
+          Email Address
+        %th
+          Role
+        %th
+        %th
+    %tbody
+      - @users.each do |user|
+        = form_for user, url: user_path(user), method: :patch, html: { class: 'form-inline' } do |f|
+          %tr
+            %td= user.givenname
+            %td= user.email
+            %td= f.select :role, [['User', 'user'], ['Student', 'student'], ['Staff', 'staff'], ['Admin', 'admin']], {}, class: 'form-select'
+            %td= f.submit 'Update', class: 'btn btn-outline-secondary btn-sm justify-content-end'
+            %td

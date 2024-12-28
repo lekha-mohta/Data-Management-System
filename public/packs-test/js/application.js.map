@@ -1,0 +1,1 @@
+{"version":3,"file":"js/application.js","mappings":";;;;;;;;;;;;;AAAA;AACA;;AAEA","sources":["webpack://app/./app/packs/entrypoints/application.js"],"sourcesContent":["import Rails from \"@rails/ujs\";\nimport \"bootstrap\"; // Import Bootstrap JavaScript\n\nRails.start();\n"],"names":[],"sourceRoot":""}

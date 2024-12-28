@@ -1,0 +1,15 @@
+-# frozen_string_literal: true
+= simple_form_for(@group_user) do |f|
+  .card-body
+    .m-2
+      = f.input :groupId, as: :hidden
+      = f.label :groupName, 'Adding to group'
+      = f.label @group.name, class: 'form-control', readonly: true
+    .m-2
+      = f.label :userId, 'Select a user'
+      = f.collection_select :userId, @users, :id, :name, { prompt: 'Select a user' }, class: 'form-control'
+
+  .card-footer.d-flex
+    %button.btn.btn-primary{ type: 'submit' }
+      Save
+    = link_to 'Back', edit_group_path(@group), class: 'btn btn-link ms-auto'

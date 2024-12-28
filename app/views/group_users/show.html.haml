@@ -1,0 +1,14 @@
+.row.justify-content-center
+  .col-sm-8.col-lg-6
+    .card
+      .card-header
+        Group User details
+      .card-body
+        %dl.row.mb-0
+          %dt.col-md-3 Groupid:
+          %dd.col-md-9= @group_user.groupId
+          %dt.col-md-3 Userid:
+          %dd.col-md-9= @group_user.userId
+      .card-footer.d-flex
+        = link_to 'Edit', edit_group_user_path(@group_user), class: 'btn btn-link'
+        = link_to 'Back', group_users_path, class: 'btn btn-link ms-auto'

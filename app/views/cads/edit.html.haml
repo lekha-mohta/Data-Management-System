@@ -1,0 +1,17 @@
+.row.justify-content-center
+  .col-sm-8.col-lg-6
+    - if @cad.errors.any?
+      .col-sm.col-lg 
+        .alert.alert-danger 
+          %ul
+            - @cad.errors.full_messages.each do |message|
+              %li= message 
+    .card.mb-2
+      .card-header 
+        Editing
+        = @cad.name
+      = render 'form'
+
+
+
+      

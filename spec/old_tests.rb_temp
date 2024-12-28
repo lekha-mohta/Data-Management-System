@@ -1,0 +1,152 @@
+# After correct Login, should be able to see the home page, otherwise incorrect details page 
+
+# Add path/directory of the test 
+require 'rails_helper'
+
+Rspec.describe 'User Landing', type: :feature do
+    before do 
+        "Add authentication section? or is it done by google itself"
+    end
+    describe 'AfterLogin' do 
+        context 'When user is logged in with correct details' do 
+            it 'Should be on the home page' do 
+                user = authenticated
+                expect(page).to current_path(\home)
+            end 
+        end
+    
+        context 'When user is logged in with incorrect details' do 
+            it 'Should show an incorrect login details page' do
+                expect(page).to current_path(\incorrect_page)
+            end 
+        end 
+    end 
+end 
+
+
+# Before Logging in, should not be able to see anything other than the login button on the landing page
+Rspec.describe 'Landing Page', type: :feature do
+    describe 'LandingBeforeLogin' do
+        context 'Features shown on the landing page before logging in' do
+            it 'Only the login button + some text should be visible' do
+                visit '\landingPage'
+
+                expect(page).to have_content 'Advanced Polymer Sintering Laboratory' #rest is yet tbd
+                expect(page).to have_content 'Login'
+            end 
+            it 'Does not have any extra content visible'
+                visit '\landingPage' 
+
+                expect(page).to_not have_content 'CAD Files'
+                expect(page).to_not have_content 'Materials'
+                expect(page).to_not have_content 'Build Files'
+                expect(page).to_not have_content 'Logout'
+            end
+        end 
+    end 
+    describe 'ClickingLogin' do
+        context 'Clicking on login button should take us to login page' do
+            it 'Takes us to the login page' do
+                visit '\landingPage'
+                click_button 'Login'
+
+                expect(current_path).to eq('\login')
+                expect(page).to have_content 'Login'
+            end 
+        end 
+    end
+end 
+
+# After Login, they should be able to see a)Logged in as a user b) Logout Button c)basic Lab details
+Rspec.describe 'Home Page', type: :feature do
+    describe 'HomePage' do
+        let!(:user) { FactoryBot.create(:user) }
+
+        before do 
+            login_as(user, :scope => :user)
+            visit '\home'
+        end 
+
+        context 'After logging in with correct details'
+            it 'Should have Logged in as, Logout and Lab details section' do
+                expect(current_path).to eq('\home')
+
+                expect(page).to have_content 'Logged in as User'
+                expect(page).to have_content 'Logout'
+                expect(page).to have_content 'Basic Lab details' #yet tbd
+            end
+            
+            it 'Should be able to Logout successfully' do
+                click_button 'Logout'
+
+                expect(current_path).to eq('\landingPage')
+                expect(page).to have_content 'Logged Out successfully '
+            end 
+        end
+    end 
+end
+
+#Given they are authorized by candice they should be able to view pages they have access to in the navbar
+
+#When they have been logged in as a student; Files visible -> View / Upload my own data; Request access from Candice ; 
+Rspec.describe 'Home Page - Student', type: :feature do
+    describe 'HomePageStudent' do
+        let!(:student) { FactoryBot.create(:user, role: 'student') }
+
+        before do
+            authorize_user_by_candice(student) #Is there a method to authorize users?
+            login_as(user, :scope => :student)
+        end
+
+        context 'Students have access to Materials files created by them' # Checking for materials only 
+            #Creating a file by the user (associated to the user account)
+            mFile1 = FactoryBot.create(:file, user: user)
+
+            visit '\Materials'
+
+            #Checks whether the materials file created by the user is present
+            expect(page).to have_content('mFile1')
+
+            #Cheking file details 
+            click_link 'mFile1'
+            expect(page).to have_content("File Author: #{'user name'}")
+        end
+
+        context 'Students have access to Materials files created by them' # Checking for CAD Files only 
+            #Creating a file by the user (associated to the user account)
+            cFile1 = FactoryBot.create(:file, user: user)
+
+            visit '\CadFiles'
+
+            #Checks whether the materials file created by the user is present
+            expect(page).to have_content('cFile1')
+
+            #Cheking file details 
+            click_link 'cFile1'
+            expect(page).to have_content("File Author: #{'user name'}")
+        end
+
+        # Similarly can be done for Builds 
+        # No need for process i'm assuming? -> user cannot add a process? 
+    end 
+end 
+
+# The above can be similarly done for both Staff and Manager
+
+# After logging in as a user, should be able to see candice contact deatils to request for access 
+Rspec.describe 'Contact Details' do
+    let!(:user) { FactoryBot.create(:user) }
+
+    describe 'Contact Us' do 
+        context 'Candice Details should be available to request for access' do
+            visit '\ContactUs'
+
+            expect(page).to have_content("Name: Dr. Candice")
+            expect(page).to have_content("Email: candice@sheffield.ac.uk")
+            expect(page).to have_content("Phone: 123-456-7890")
+
+            click_link 'Request Access'
+            # Are we keeping a form to fill out requesting access OR direclty mail Candice? 
+        end 
+    end
+end 

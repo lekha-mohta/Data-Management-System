@@ -1,0 +1,22 @@
+.card
+  .card-header.d-flex.align-items-center
+    %span Listing Groups
+
+    = link_to 'New Group', new_group_path, class: 'btn btn-outline-secondary ms-auto'
+
+  %table.table
+    %thead
+      %tr
+        %th Name
+        %th Description
+        %th
+    %tbody
+      - @groups.each do |group|
+        %tr
+          %td= group.name
+          %td= group.description
+          %td
+            .btn-toolbar.float-end
+              = link_to 'Show', group, class: 'btn btn-outline-secondary btn-sm'
+              = link_to 'Edit', edit_group_path(group), class: 'btn btn-outline-secondary ms-1 btn-sm'
+              = link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-danger ms-1 btn-sm'

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang='en-GB'>
+<head>
+<title>Project</title>
+<meta content='text/html; charset=utf-8' http-equiv='content-type'>
+<meta content='IE=edge' http-equiv='X-UA-Compatible'>
+<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport'>
+<title>Project</title>
+
+
+<link rel="stylesheet" href="/packs-test/css/vendors-node_modules_bootstrap-icons_font_bootstrap-icons_css.css" media="all" />
+<link rel="stylesheet" href="/packs-test/css/styles.css" media="all" />
+<script src="/packs-test/js/runtime.js" defer="defer"></script>
+<script src="/packs-test/js/vendors-node_modules_rails_ujs_lib_assets_compiled_rails-ujs_js-node_modules_bootstrap_dist_j-562a5e.js" defer="defer"></script>
+<script src="/packs-test/js/application.js" defer="defer"></script>
+</head>
+<body>
+<header class='navbar navbar-expand-md bg-layout mb-3'>
+<div class='container-fluid d-flex justify-content-between'>
+<a class="navbar-brand" href="/"><img height="50" src="/packs-test/static/images/logo-62e023bc7e88f51a41ed.png" />
+</a></div>
+<button aria-controls='navbar-content' aria-expanded='false' aria-label='Toggle navigation' class='navbar-toggler' data-bs-target='#navbar-content' data-bs-toggle='collapse' type='button'>
+<span class='navbar-toggler-icon'></span>
+</button>
+<div class='navbar-collapse collapse' id='navbar-content'>
+<nav class='navbar-nav'>
+<a class="nav-link" href="/materials"><i class='bi-book'></i>
+Materials
+</a><a class="nav-link" href="/cads"><i class='bi-file-earmark-binary'></i>
+CAD Files
+</a><a class="nav-link" href="/builds"><i class='bi-tools'></i>
+Builds
+</a><li class='nav-item dropdown'></li>
+<a aria-expanded='false' class='btn btn-secondary dropdown-toggle' data-bs-toggle='dropdown' id='navbarDropdown' type='button'>
+<i class='bi bi-person-circle'></i>
+</a>
+<div aria-labelledby='navbarDropdown' class='dropdown-menu dropdown-menu-end'>
+<a class="dropdown-item fs-5 text-muted" href="/profile">
+</a><a class="dropdown-item" href="/machines">Machines
+</a><a class="dropdown-item" href="/groups">Groups
+</a><a class="dropdown-item" href="/users">User Roles
+</a><div class='logout'>
+<a class="dropdown-item" rel="nofollow" data-method="delete" href="/users/sign_out">Logout
+</a></div>
+</div>
+</nav>
+</div>
+</header>
+<div class='container-fluid flash-messages'>
+<div class='alert alert-success'>Build was successfully added to Group.</div>
+</div>
+<main>
+<div class='container-fluid'>
+<div class='card mb-3'>
+<div class='card-header d-flex align-items-center'>
+<span>Add builds to: Confidential</span>
+<a class="btn btn-outline-secondary ms-auto" href="/groups/1/edit">Back</a>
+</div>
+<div class='show' id='filterOptions'>
+<div class='card-body'>
+<form class="d-flex flex-column px-2" action="/group_builds/new.1" accept-charset="UTF-8" method="get"><div class='row'>
+<div class='form-group col-md-4 mb-2'>
+<label for="name">Build Name:</label>
+<input type="text" name="name" id="name" class="form-control" placeholder="Name" />
+</div>
+</div>
+<div class='justify-content-between mt-2'>
+<input type="submit" name="commit" value="Search" class="btn btn-primary" data-disable-with="Search" />
+<a class="btn btn-secondary" href="/group_builds/new.1">Clear</a>
+</div>
+</form></div>
+</div>
+</div>
+<div class='card mb-2'>
+<table class='table table-striped table-hover'>
+<thead class='table-secondary'>
+<tr>
+<th>
+Build Name
+<a class="text-decoration-none text-primary" href="/group_builds/new.1?order=asc&amp;sort=name">▲</a>
+<a class="text-decoration-none text-primary" href="/group_builds/new.1?order=desc&amp;sort=name">▼</a>
+</th>
+<th>
+Machine
+</th>
+<th>
+Project Name
+</th>
+<th>
+Material
+</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Build 1</td>
+<td>P100 (LS)</td>
+<td>Project 1</td>
+<td>Material1</td>
+<td>
+<div class='btn-toolbar float-end'>
+<form class="button_to" method="post" action="/group_builds/1"><input type="hidden" name="_method" value="delete" autocomplete="off" /><button data-confirm="Are you sure?" class="btn btn-outline-danger btn-sm" type="submit">Remove</button></form>
+</div>
+</td>
+</tr>
+<tr>
+<td>Build 2</td>
+<td>VX200 (HSS)</td>
+<td>Project 2</td>
+<td>Material2</td>
+<td>
+<div class='btn-toolbar float-end'>
+<form action="/group_builds" accept-charset="UTF-8" method="post"><input value="1" autocomplete="off" type="hidden" name="group_build[groupId]" id="group_build_groupId" />
+<input value="2" autocomplete="off" type="hidden" name="group_build[buildId]" id="group_build_buildId" />
+<input type="submit" name="commit" value="Add" class="btn btn-outline-secondary btn-sm" data-disable-with="Add" />
+</form></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</div>
+</main>
+<footer>
+<div class='mt-5 bg-layout'>
+<div class='container-fluid footer-foot d-flex p-3 justify-content-between'>
+<div>
+<a class="foot-link" href="mailto:c.majewski@sheffeld.ac.uk">Contact us
+</a><a class="foot-link" href="/">Privacy Policy
+</a></div>
+<span class='text-white'>
+Copyright © 2024 Team 07
+</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

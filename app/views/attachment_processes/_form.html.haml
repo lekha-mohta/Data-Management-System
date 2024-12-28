@@ -1,0 +1,10 @@
+-# frozen_string_literal: true
+= simple_form_for(@attachment_process) do |f|
+  .card-body
+    = f.input :attachmentId, wrapper_html: { class: 'mb-3' }
+    = f.input :processId, wrapper_html: { class: 'mb-3' }
+
+  .card-footer.d-flex
+    %button.btn.btn-primary{ type: 'submit' }
+      Save
+    = link_to 'Back', attachment_processes_path, class: 'btn btn-link ms-auto'

@@ -1,0 +1,27 @@
+-# frozen_string_literal: true
+= simple_form_for(@material) do |f|
+  .card-body
+    = f.input :name, label: 'Name:', wrapper_html: { class: 'mb-3' }
+
+    = f.input :description, label: 'Description:', wrapper_html: { class: 'mb-3' }
+
+    = f.input :material_type, as: :select, collection: ["Powder", "Liquid", "Other"], label: 'Material Type:', wrapper_html: { class: 'mb-3' }, prompt:nil
+
+    = f.input :quantity, label: 'Quantity(kg or ml):', wrapper_html: { class: 'mb-3' }
+
+    = f.input :location, label: 'Location:', wrapper_html: { class: 'mb-3' }
+    
+    = f.input :meltingOnset, label: 'Melting Onset:', wrapper_html: { class: 'mb-3' }
+
+    = f.input :crystallisationOnset, label: 'Crystalisation Onset:', wrapper_html: { class: 'mb-3' }
+
+    = f.input :archived, label: 'Archived', wrapper_html: { class: 'mb-3' }
+
+    = f.input :MSDS, as: :file, label: "MSDS:", wrapper_html: { class: 'mb-3' }
+    = f.input :CoSHH, as: :file, label: "CoSHH:", wrapper_html: { class: 'mb-3' }
+    = f.input :DSC, as: :file, label: "DSC:", wrapper_html: { class: 'mb-3' }
+    = f.input :FT4, as: :file, label: "FT4:", wrapper_html: { class: 'mb-3' }
+    
+  .card-footer.d-flex.justify-content-between.mt-2
+    = link_to 'Back', @material, class: 'btn btn-outline-secondary'
+    = f.submit 'Submit', class: 'btn btn-primary'

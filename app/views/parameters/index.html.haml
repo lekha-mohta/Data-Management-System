@@ -1,0 +1,20 @@
+.card
+  .card-header.d-flex.align-items-center
+    %span Listing Parameters
+
+    = link_to 'New Parameter', new_parameter_path, class: 'btn btn-outline-secondary ms-auto'
+
+  %table.table
+    %thead
+      %tr
+        %th Name
+        %th Unit
+        %th
+    %tbody
+      - @parameters.each do |parameter|
+        %tr
+          %td= parameter.name
+          %td= parameter.unit
+          %td
+            .btn-toolbar.float-end
+              = link_to 'Show', parameter, class: 'btn btn-outline-secondary btn-sm'

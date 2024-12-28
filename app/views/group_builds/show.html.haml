@@ -1,0 +1,14 @@
+.row.justify-content-center
+  .col-sm-8.col-lg-6
+    .card
+      .card-header
+        Group Build details
+      .card-body
+        %dl.row.mb-0
+          %dt.col-md-3 Groupid:
+          %dd.col-md-9= @group_build.groupId
+          %dt.col-md-3 Buildid:
+          %dd.col-md-9= @group_build.buildId
+      .card-footer.d-flex
+        = link_to 'Edit', edit_group_build_path(@group_build), class: 'btn btn-link'
+        = link_to 'Back', group_builds_path, class: 'btn btn-link ms-auto'

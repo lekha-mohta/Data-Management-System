@@ -1,0 +1,67 @@
+.row.justify-content-center
+  .col-sm-8.col-lg-6
+    .card
+      .card-header
+        = @material.name
+        Details
+      .card-body
+        %dl.row.mb-0
+          %dt.col-md-4 Name:
+          %dd.col-md-8= @material.name
+
+          %dt.col-md-4 Description:
+          %dd.col-md-8= @material.description
+                    
+          %dt.col-md-4 Material Type:
+          %dd.col-md-8= @material.material_type
+
+          %dt.col-md-4 Quantity (Kg or ml):
+          %dd.col-md-8= @material.quantity
+          
+          %dt.col-md-4 Location:
+          %dd.col-md-8= @material.location
+          
+          %dt.col-md-4 Melting onset (°C):
+          %dd.col-md-8= @material.meltingOnset
+          
+          %dt.col-md-4 Crystallisation onset (°C):
+          %dd.col-md-8= @material.crystallisationOnset
+          
+          %dt.col-md-4 Created By:
+          %dd.col-md-8
+            = "#{@material.created_by.givenname} #{@material.created_by.sn}"
+            %br= @material.created_by.email
+          
+          %dt.col-md-4 Created At:
+          %dd.col-md-8= @material.created_at.strftime('%Y-%m-%d %H:%M:%S')
+          
+          %dt.col-md-4 Updated By: 
+          %dd.col-md-8
+            = "#{@material.modified_by.givenname} #{@material.modified_by.sn}"
+            %br= @material.modified_by.email
+          
+          %dt.col-md-4 Updated At: 
+          %dd.col-md-8= @material.updated_at.strftime('%Y-%m-%d %H:%M:%S')
+          
+          %dt.col-md-4 Archived:
+          %dd.col-md-8= @material.archived
+
+          %dt.col-md-4 MSDS:
+          %dd.col-md-8
+            = link_to 'Download MSDS', download_material_path(@material, attribute: 'MSDS'), class: 'btn btn-light'
+
+          %dt.col-md-4 CoSHH:
+          %dd.col-md-8
+            = link_to 'Download CoSHH', download_material_path(@material, attribute: 'CoSHH'), class: 'btn btn-light'
+
+          %dt.col-md-4 DSC:
+          %dd.col-md-8
+            = link_to 'Download DSC', download_material_path(@material, attribute: 'DSC'), class: 'btn btn-light'
+
+          %dt.col-md-4 FT4:
+          %dd.col-md-8
+            = link_to 'Download FT4', download_material_path(@material, attribute: 'FT4'), class: 'btn btn-light'
+      
+      .card-footer.d-flex.justify-content-between.mt-2
+        = link_to 'Back', materials_path, class: 'btn btn-outline-secondary'
+        = link_to 'Edit', edit_material_path(@material), class: 'btn btn-primary'

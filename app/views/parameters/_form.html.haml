@@ -1,0 +1,9 @@
+-# frozen_string_literal: true
+= simple_form_for(@parameter) do |f|
+  .card-body
+    = f.input :name, wrapper_html: { class: 'mb-3' }
+    = f.input :unit, wrapper_html: { class: 'mb-3' }
+
+  .card-footer.d-flex.justify-content-between.mt-2
+    = link_to 'Back', @parameter, class: 'btn btn-outline-secondary'
+    = f.submit 'Submit', class: 'btn btn-primary'

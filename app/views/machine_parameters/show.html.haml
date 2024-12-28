@@ -1,0 +1,14 @@
+.row.justify-content-center
+  .col-sm-8.col-lg-6
+    .card
+      .card-header
+        Machine Parameter details
+      .card-body
+        %dl.row.mb-0
+          %dt.col-md-3 Processid:
+          %dd.col-md-9= @machine_parameter.processId
+          %dt.col-md-3 Parameterid:
+          %dd.col-md-9= @machine_parameter.parameterId
+      .card-footer.d-flex
+        = link_to 'Edit', edit_machine_parameter_path(@machine_parameter), class: 'btn btn-link'
+        = link_to 'Back', machine_parameters_path, class: 'btn btn-link ms-auto'

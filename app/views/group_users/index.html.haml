@@ -1,0 +1,22 @@
+.card
+  .card-header.d-flex.align-items-center
+    %span Listing Group Users
+
+    = link_to 'New Group user', new_group_user_path, class: 'btn btn-outline-secondary ms-auto'
+
+  %table.table
+    %thead
+      %tr
+        %th Groupid
+        %th Userid
+        %th
+    %tbody
+      - @group_users.each do |group_user|
+        %tr
+          %td= group_user.groupId
+          %td= group_user.userId
+          %td
+            .btn-toolbar.float-end
+              = link_to 'Show', group_user, class: 'btn btn-outline-secondary btn-sm'
+              = link_to 'Edit', edit_group_user_path(group_user), class: 'btn btn-outline-secondary ms-1 btn-sm'
+              = link_to 'Destroy', group_user, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-danger ms-1 btn-sm'

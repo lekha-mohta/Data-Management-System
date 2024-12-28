@@ -1,0 +1,69 @@
+-# Display for Show Page 
+.row.justify-content-center
+  .col-sm-8.col-lg-6
+    .card
+      .card-header
+        = @build.name
+        Details
+      .card-body
+        %dl.row.mb-0
+          %dt.col-md-4 Name:
+          %dd.col-md-8= @build.name
+          
+          %dt.col-md-4 Project:
+          %dd.col-md-8= @build.build_project.name
+
+          %dt.col-md-4 Material:
+          %dd.col-md-8= @build.material.name
+
+          %dt.col-md-4 Machine:
+          %dd.col-md-8= @build.machine.name
+
+          %dt.col-md-4 Comments:
+          %dd.col-md-8= @build.comments
+
+          %dt.col-md-4 Avg. UTS (MPa):
+          %dd.col-md-8= @build.avgUTS
+
+          %dt.col-md-4 Avg. Modulus (MPa):
+          %dd.col-md-8= @build.avgModules
+
+          %dt.col-md-4 Avg. EaB (%):
+          %dd.col-md-8= @build.avgEaB
+
+          -# For showing the machine specific parameters of the build 
+          - if @build_parameters
+            - @build_parameters.each do |param|
+              - p = Parameter.find(param.parameterId)
+              - if p.unit == 'N/A'
+                %dt.col-md-4= "#{p.name}:"
+              - else
+                %dt.col-md-4= "#{p.name} (#{p.unit}):"
+              %dd.col-md-8= param.value
+
+          %dt.col-md-4 Completed:
+          %dd.col-md-8= @build.completed
+
+          %dt.col-md-4 Created By:
+          %dd.col-md-8
+            = "#{@build.created_by.givenname} #{@build.created_by.sn}"
+            %br= @build.created_by.email
+
+          %dt.col-md-4 Created At:
+          %dd.col-md-8= @build.created_at.strftime('%Y-%m-%d %H:%M:%S')
+
+          %dt.col-md-4 Updated By: 
+          %dd.col-md-8
+            = "#{@build.modified_by.givenname} #{@build.modified_by.sn}"
+            %br= @build.modified_by.email
+
+          %dt.col-md-4 Updated At: 
+          %dd.col-md-8= @build.updated_at.strftime('%Y-%m-%d %H:%M:%S')
+
+          %dt.col-md-4 Tensile Raw Data:
+          %dd.col-md-8
+            = link_to 'Download', download_build_path(@build), class: 'btn btn-light'
+
+      .card-footer.d-flex.justify-content-between.mt-2
+        = link_to 'Back', builds_path, class: 'btn btn-outline-secondary'
+        = link_to 'Edit', edit_build_path(@build), class: 'btn btn-primary'

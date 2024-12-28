@@ -1,0 +1,17 @@
+-# frozen_string_literal: true
+= simple_form_for(@cad) do |f|
+  .card-body
+    = f.input :name, label: 'Name:', wrapper_html: { class: 'mb-3' }
+
+    = f.input :file_type, as: :select, collection: ['Part File', 'Build File', 'Other'], label: 'File Type:', wrapper_html: { class: 'mb-3' }, prompt: nil
+
+    = f.input :machineId, as: :select, collection: Machine.all.map { |m| [m.name, m.id] }.reverse, label: 'Machine:', wrapper_html: { class: 'mb-3' }, prompt: nil
+
+    = f.input :archived, label:'Archived', wrapper_html: { class: 'mb-3' }
+
+    = f.input :file, as: :file, label: 'File:', wrapper_html: { class: 'mb-3' }
+
+  .card-footer.d-flex.justify-content-between.mt-2
+    = link_to 'Back', @cad, class: 'btn btn-outline-secondary'
+    = f.submit 'Submit', class: 'btn btn-primary'
+    

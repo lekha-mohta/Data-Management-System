@@ -1,0 +1,43 @@
+.row.justify-content-center
+  .col-sm-8.col-lg-6
+    .card
+      .card-header
+        = @cad.name
+        Details
+      .card-body
+        %dl.row.mb-0
+          %dt.col-md-3 File name:
+          %dd.col-md-9= @cad.name
+          
+          %dt.col-md-3 File type:
+          %dd.col-md-9= @cad.file_type
+          
+          %dt.col-md-3 Machine:
+          %dd.col-md-9= @cad.machine.name
+                                 
+          %dt.col-md-3 Created By
+          %dd.col-md-9
+            = "#{@cad.created_by.givenname} #{@cad.created_by.sn}"
+            %br= @cad.created_by.email
+          
+          %dt.col-md-3 Created at:
+          %dd.col-md-9= @cad.created_at.strftime('%Y-%m-%d %H:%M:%S')
+
+          %dt.col-md-3 Updated By:
+          %dd.col-md-9
+            = "#{@cad.modified_by.givenname} #{@cad.modified_by.sn}"
+            %br= @cad.modified_by.email
+
+          %dt.col-md-3 Updated at:
+          %dd.col-md-9= @cad.updated_at.strftime('%Y-%m-%d %H:%M:%S')
+
+          %dt.col-md-3 Archived:
+          %dd.col-md-9= @cad.archived
+
+          %dt.col-md-3 File:
+          %dd.col-md-9
+            = link_to 'Download', download_cad_path(@cad), class: 'btn btn-light'
+          
+      .card-footer.d-flex.justify-content-between.mt-2
+        = link_to 'Back', cads_path, class: 'btn btn-outline-secondary'
+        = link_to 'Edit', edit_cad_path, class: 'btn btn-primary'

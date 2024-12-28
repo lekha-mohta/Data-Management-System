@@ -1,0 +1,14 @@
+.row.justify-content-center
+  .col-sm-8.col-lg-6
+    .card
+      .card-header
+        Attachment details
+      .card-body
+        %dl.row.mb-0
+          %dt.col-md-3 Name:
+          %dd.col-md-9= @attachment.name
+          %dt.col-md-3 File:
+          %dd.col-md-9= @attachment.file
+      .card-footer.d-flex
+        = link_to 'Edit', edit_attachment_path(@attachment), class: 'btn btn-link'
+        = link_to 'Back', attachments_path, class: 'btn btn-link ms-auto'

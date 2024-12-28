@@ -1,0 +1,20 @@
+.card
+  .card-header.d-flex.align-items-center
+    %span Listing Build Projects
+
+    = link_to 'New Build project', new_build_project_path, class: 'btn btn-outline-secondary ms-auto'
+
+  %table.table
+    %thead
+      %tr
+        %th Name
+        %th Description
+        %th
+    %tbody
+      - @build_projects.each do |build_project|
+        %tr
+          %td= build_project.name
+          %td= build_project.description
+          %td
+            .btn-toolbar.float-end
+              = link_to 'Show', build_project, class: 'btn btn-outline-secondary btn-sm'

@@ -1,0 +1,77 @@
+.card.mb-3
+  .card-header.d-flex.align-items-center
+    %span Add Materials to: #{@group.name}
+    = link_to 'Back', edit_group_path(@group), class: 'btn btn-outline-secondary ms-auto'
+
+  #filterOptions.show
+    .card-body
+      = form_tag request.fullpath , method: :get, class: 'd-flex flex-column px-2' do 
+        .row
+          .form-group.col-md-4.mb-2
+            = label_tag :name, "Material Name:"
+            = text_field_tag :name, params[:name], class: 'form-control', placeholder: 'Name'
+
+        .justify-content-between.mt-2
+          = submit_tag "Search", class: 'btn btn-primary'
+          = link_to "Clear", new_group_material_path(@group), class: 'btn btn-secondary'
+
+.card.mb-2
+  %table.table.table-striped.table-hover
+    %thead.table-secondary
+      %tr
+        %th
+          Material Name
+          = link_to '▲', request.params.merge(sort: 'name', order: 'asc'), class: 'text-decoration-none text-primary'
+          = link_to '▼', request.params.merge(sort: 'name', order: 'desc'), class: 'text-decoration-none text-primary'
+        %th
+          Material Type
+          = link_to '▲', request.params.merge(sort: 'material_type', order: 'asc'), class: 'text-decoration-none text-primary'
+          = link_to '▼', request.params.merge(sort: 'material_type', order: 'desc'), class: 'text-decoration-none text-primary'
+        %th
+          Melting Onset
+          = link_to '▲', request.params.merge(sort: 'meltingOnset', order: 'asc'), class: 'text-decoration-none text-primary'
+          = link_to '▼', request.params.merge(sort: 'meltingOnset', order: 'desc'), class: 'text-decoration-none text-primary'
+        %th
+          Crystallisation Onset
+          = link_to '▲', request.params.merge(sort: 'crystallisationOnset', order: 'asc'), class: 'text-decoration-none text-primary'
+          = link_to '▼', request.params.merge(sort: 'crystallisationOnset', order: 'desc'), class: 'text-decoration-none text-primary'
+        %th
+          Created By
+          = link_to '▲', request.params.merge(sort: 'createdBy', order: 'asc'), class: 'text-decoration-none text-primary'
+          = link_to '▼', request.params.merge(sort: 'createdBy', order: 'desc'), class: 'text-decoration-none text-primary'
+        %th
+          Last Modifier
+          = link_to '▲', request.params.merge(sort: 'modifiedBy', order: 'asc'), class: 'text-decoration-none text-primary'
+          = link_to '▼', request.params.merge(sort: 'modifiedBy', order: 'desc'), class: 'text-decoration-none text-primary'
+        %th
+          Archived
+        %th
+    %tbody
+      - @group_materials.each do |group_material|
+        %tr
+          - material = group_material.material
+          %td= material.name
+          %td= material.material_type
+          %td= material.meltingOnset
+          %td= material.crystallisationOnset
+          %td= material.created_by.email
+          %td= material.modified_by.email
+          %td= material.archived
+          %td
+            .btn-toolbar.float-end
+              = button_to 'Remove', group_material_path(group_material), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-danger btn-sm'
+      - @materials.each do |material|
+        %tr
+          %td= material.name
+          %td= material.material_type
+          %td= material.meltingOnset
+          %td= material.crystallisationOnset
+          %td= material.created_by.email
+          %td= material.modified_by.email
+          %td= material.archived
+          %td
+            .btn-toolbar.float-end
+              = form_with url: group_materials_path, method: :post, scope: :group_material do |form|
+                = form.hidden_field :groupId, value: @group.id
+                = form.hidden_field :materialId, value: material.id
+                = form.submit 'Add', class: 'btn btn-outline-secondary btn-sm'

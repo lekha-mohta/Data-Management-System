@@ -1,0 +1,11 @@
+.row.justify-content-center
+  .col-sm-8.col-lg-6
+    - if @machine.errors.any?
+      .col-sm.col-lg 
+        .alert.alert-danger 
+          %ul
+            - @machine.errors.full_messages.each do |message|
+              %li= message 
+    .card.mb-2
+      .card-header Editing Machine
+      = render 'form'

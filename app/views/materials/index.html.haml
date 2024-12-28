@@ -1,0 +1,118 @@
+
+.card.mb-3
+  .card-header.d-flex.align-items-center
+    %a{ "data-bs-toggle": "collapse", href: "#filterOptions", class: 'btn btn-outline-secondary'}
+      %span Filtering Options ▲▼
+
+  -# Layout for the search-filter 
+  #filterOptions.collapse.show
+    .card-body
+      = form_tag materials_path, method: :get, class: 'd-flex flex-column px-2' do 
+        .row
+          .form-group.col-md-4.mb-2
+            = label_tag :name, "Material Name:"
+            = text_field_tag :name, params[:name], class: 'form-control', placeholder: 'Name'
+          .form-group.col-md-4.mb-2
+            = label_tag :material_type, "Material Type:"
+            = select_tag :material_type, options_for_select([['Powder', 'powder'], ['Liquid', 'liquid'], ['Other', 'other']], params[:material_type]), include_blank: 'Select Material Type', class: 'form-select'
+          .form-group.col-md-4.mb-2
+            = label_tag :createdBy, "File Creator:"
+            = text_field_tag :createdBy, params[:createdBy], class: 'form-control', placeholder: 'Creator'
+          .form-group.col-md-4.mb-2
+            = label_tag :modifiedBy, "Last Modifier:"
+            = text_field_tag :modifiedBy, params[:modifiedBy], class: 'form-control', placeholder: 'Last Modifier'
+          .form-group.col-md-4.mb-2
+            = label_tag :meltingOnset, "Melting Onset:"
+            .row
+              .col-md-6.mb-2
+                = number_field_tag :meltingOnset_min, params[:meltingOnset_min], class: 'form-control', placeholder: 'Min °C'
+              .col-md-6.mb-2
+                = number_field_tag :meltingOnset_max, params[:meltingOnset_max], class: 'form-control', placeholder: 'Max °C'
+          .form-group.col-md-4.mb-2
+            = label_tag :crystallisationOnset, "Crystallisation Onset:"
+            .row
+              .col-md-6.mb-2
+                = number_field_tag :crystallisationOnset_min, params[:crystallisationOnset_min], class: 'form-control', placeholder: 'Min °C'
+              .col-md-6.mb-2
+                = number_field_tag :crystallisationOnset_max, params[:crystallisationOnset_max], class: 'form-control', placeholder: 'Max °C'
+          .form-group.col-md-4.mb-2
+            = label_tag :created_at, "Creation Date:"
+            .row
+              .col-md-6.mb-2
+                = date_field_tag :created_at_min, params[:created_at_min], class: 'form-control'
+              .col-md-6.mb-2
+                = date_field_tag :created_at_max, params[:created_at_max], class: 'form-control'   
+          .form-group.col-md-4.mb-2
+            = label_tag :updated_at, "Last Update:"
+            .row
+              .col-md-6.mb-2
+                = date_field_tag :updated_at_min, params[:updated_at_min], class: 'form-control'
+              .col-md-6.mb-2
+                = date_field_tag :updated_at_max, params[:updated_at_max], class: 'form-control'
+          .form-group.col-md-4.mb-2
+            = label_tag :archived, "Archived"
+            = select_tag :archived, options_for_select([['Yes', 'yes'], ['No', 'no']], params[:archived]), include_blank: 'Select Archived', class: 'form-select'
+
+        .d-flex.justify-content-between.mt-2
+          = link_to "Clear Filters", materials_path, class: 'btn btn-secondary'
+          = submit_tag "Apply Filters", class: 'btn btn-primary'
+
+-# Layout for the display table for Materials        
+.card.mb-2
+  .card-header.d-flex.align-items-center
+    %span Listing Materials
+
+    = link_to 'New Material', new_material_path, class: 'btn btn-outline-secondary ms-auto'
+
+  -# Layout for filtering show table in ascending and descending order
+  %table.table.table-striped.table-hover
+    %thead.table-secondary
+      %tr
+        %th
+          Mat. Name
+          = link_to '▲', request.params.merge(sort: 'name', order: 'asc'), class: 'text-decoration-none text-primary'
+          = link_to '▼', request.params.merge(sort: 'name', order: 'desc'), class: 'text-decoration-none text-primary'
+        %th
+          Mat. Type
+          = link_to '▲', request.params.merge(sort: 'material_type', order: 'asc'), class: 'text-decoration-none text-primary'
+          = link_to '▼', request.params.merge(sort: 'material_type', order: 'desc'), class: 'text-decoration-none text-primary'
+        %th
+          Melt. Onset
+          = link_to '▲', request.params.merge(sort: 'meltingOnset', order: 'asc'), class: 'text-decoration-none text-primary'
+          = link_to '▼', request.params.merge(sort: 'meltingOnset', order: 'desc'), class: 'text-decoration-none text-primary'
+        %th
+          Cryst. Onset
+          = link_to '▲', request.params.merge(sort: 'crystallisationOnset', order: 'asc'), class: 'text-decoration-none text-primary'
+          = link_to '▼', request.params.merge(sort: 'crystallisationOnset', order: 'desc'), class: 'text-decoration-none text-primary'
+        %th
+          Location
+          = link_to '▲', request.params.merge(sort: 'location', order: 'asc'), class: 'text-decoration-none text-primary'
+          = link_to '▼', request.params.merge(sort: 'location', order: 'desc'), class: 'text-decoration-none text-primary'
+        %th
+          Created By 
+          = link_to '▲', request.params.merge(sort: 'createdBy', order: 'asc'), class: 'text-decoration-none text-primary'
+          = link_to '▼', request.params.merge(sort: 'createdBy', order: 'desc'), class: 'text-decoration-none text-primary'
+        %th
+          Modified By
+          = link_to '▲', request.params.merge(sort: 'modifiedBy', order: 'asc'), class: 'text-decoration-none text-primary'
+          = link_to '▼', request.params.merge(sort: 'modifiedBy', order: 'desc'), class: 'text-decoration-none text-primary'
+        %th
+          Archived
+        %th
+    %tbody
+      - if @materials.empty? || @materials.nil?
+        %tr
+          %td{:colspan => 10, :style => "text-align: center; font-weight: bold;"}= "No Materials found"
+      - @materials.each do |material|
+        %tr
+          %td= material.name
+          %td= material.material_type
+          %td= material.meltingOnset
+          %td= material.crystallisationOnset
+          %td= material.location
+          %td= material.created_by.givenname
+          %td= material.modified_by.givenname
+          %td= material.archived
+          %td
+            .btn-toolbar.float-end
+              = link_to 'Show', material, class: 'btn btn-outline-secondary btn-sm'

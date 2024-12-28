@@ -1,0 +1,14 @@
+.row.justify-content-center
+  .col-sm-8.col-lg-6
+    .card
+      .card-header
+        Attachment Build details
+      .card-body
+        %dl.row.mb-0
+          %dt.col-md-3 Attachmentid:
+          %dd.col-md-9= @attachment_build.attachmentId
+          %dt.col-md-3 Buildid:
+          %dd.col-md-9= @attachment_build.buildId
+      .card-footer.d-flex
+        = link_to 'Edit', edit_attachment_build_path(@attachment_build), class: 'btn btn-link'
+        = link_to 'Back', attachment_builds_path, class: 'btn btn-link ms-auto'

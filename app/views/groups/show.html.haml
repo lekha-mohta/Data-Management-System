@@ -1,0 +1,63 @@
+.row.justify-content-center
+  .col-sm-8.col-lg-6
+    .card
+      .card-header
+        Group details
+      .card-body
+        %dl.row.mb-0
+          %dt.col-md-3 Name:
+          %dd.col-md-9= @group.name
+          %dt.col-md-3 Description:
+          %dd.col-md-9= @group.description
+      .card-footer.d-flex.justify-content-between.mt-2
+        = link_to 'Back', groups_path, class: 'btn btn-outline-secondary'
+        = link_to 'Edit', edit_group_path(@group), class: 'btn btn-primary'
+    .card.mt-3
+      .card-header
+        %span Group Objects
+      .card-body
+        .row
+          .form-group.m-2
+            %h4 Users 
+            - if @users.any?
+              %ul
+                - @users.each do |user|
+                  %li= user.email
+            - else
+              %i.text-muted No users in group
+        .row
+          .form-group.m-2
+            %h4 Builds
+            - if @builds.any?
+              %ul
+                - @builds.each do |build|
+                  %li= build.name
+            - else
+              %i.text-muted No builds in group
+        .row
+          .form-group.m-2
+            %h4 CADs
+            - if @cads.any?
+              %ul
+                - @cads.each do |cad|
+                  %li= cad.name
+            - else
+              %i.text-muted No CADs in group
+        .row
+          .form-group.m-2
+            %h4 Machines
+            - if @machines.any?
+              %ul
+                - @machines.each do |machine|
+                  %li= machine.name
+            - else
+              %i.text-muted No machines in group
+        .row 
+          .form-group.m-2
+            %h4 Materials
+            - if @materials.any?
+              %ul
+                - @materials.each do |material|
+                  %li= material.name
+            - else
+              %i.text-muted No materials in group

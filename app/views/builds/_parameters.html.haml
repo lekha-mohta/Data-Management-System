@@ -1,0 +1,5 @@
+= machine.parameters.each do |parameter|
+    .form-group 
+        = label_tag parameter.name
+        = text_field_tag "build[build_parameters_attributes][][value]", nil, class: 'form-control', id: "build_parameters_#{parameter.id}"
+        = hidden_field_tag "build[build_parameters_attributes][][parameter_id]", parameter.id

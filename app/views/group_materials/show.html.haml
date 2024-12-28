@@ -1,0 +1,14 @@
+.row.justify-content-center
+  .col-sm-8.col-lg-6
+    .card
+      .card-header
+        Group Material details
+      .card-body
+        %dl.row.mb-0
+          %dt.col-md-3 Groupid:
+          %dd.col-md-9= @group_material.groupId
+          %dt.col-md-3 Materialid:
+          %dd.col-md-9= @group_material.materialId
+      .card-footer.d-flex
+        = link_to 'Edit', edit_group_material_path(@group_material), class: 'btn btn-link'
+        = link_to 'Back', group_materials_path, class: 'btn btn-link ms-auto'

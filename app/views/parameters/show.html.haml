@@ -1,0 +1,13 @@
+.row.justify-content-center
+  .col-sm-8.col-lg-6
+    .card
+      .card-header
+        Parameter details
+      .card-body
+        %dl.row.mb-0
+          %dt.col-md-3 Name:
+          %dd.col-md-9= @parameter.name
+          %dt.col-md-3 Unit:
+          %dd.col-md-9= @parameter.unit
+      .card-footer
+        = link_to 'Back', parameters_path, class: 'btn btn-outline-secondary ms-auto'

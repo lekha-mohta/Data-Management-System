@@ -1,0 +1,45 @@
+Initializing the background worker with 8 threads
+[Sessions] Sessions won't be captured without a valid release
+Started GET "/" for 127.0.0.1 at 2024-12-28 16:07:12 +0900
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering pages/home.html.haml within layouts/application
+  Rendered pages/home.html.haml within layouts/application (Duration: 6.8ms | Allocations: 9248)
+  [1m[36mRackCAS::ActiveRecordStore::Session Load (1.3ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."session_id" = $1 ORDER BY "sessions"."id" ASC LIMIT $2[0m  [["session_id", "363b8cf5589110d53c974e9646aa06f0"], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.haml:15
+  Rendered layout layouts/application.html.haml (Duration: 32.8ms | Allocations: 43172)
+Completed 200 OK in 80ms (Views: 35.2ms | ActiveRecord: 7.8ms | Allocations: 61336)
+
+
+  [1m[36mCACHE RackCAS::ActiveRecordStore::Session Load (0.0ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."session_id" = $1 ORDER BY "sessions"."id" ASC LIMIT $2[0m  [["session_id", "363b8cf5589110d53c974e9646aa06f0"], ["LIMIT", 1]]
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-12-28 16:07:15 +0900
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mRackCAS::ActiveRecordStore::Session Load (0.7ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."session_id" = $1 ORDER BY "sessions"."id" ASC LIMIT $2[0m  [["session_id", "363b8cf5589110d53c974e9646aa06f0"], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.haml
+  Rendering devise/sessions/new.html.haml within layouts/application
+  Rendered /Users/lekhamohta/.rvm/gems/ruby-3.1.2/gems/devise-4.9.3/app/views/devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 529)
+  Rendered devise/sessions/new.html.haml within layouts/application (Duration: 40.5ms | Allocations: 19383)
+  Rendered layout layouts/application.html.haml (Duration: 43.1ms | Allocations: 21000)
+Completed 200 OK in 64ms (Views: 44.6ms | ActiveRecord: 6.4ms | Allocations: 33184)
+
+
+  [1m[36mCACHE RackCAS::ActiveRecordStore::Session Load (0.0ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."session_id" = $1 ORDER BY "sessions"."id" ASC LIMIT $2[0m  [["session_id", "363b8cf5589110d53c974e9646aa06f0"], ["LIMIT", 1]]
+Started GET "/" for 127.0.0.1 at 2024-12-28 16:07:19 +0900
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering pages/home.html.haml within layouts/application
+  Rendered pages/home.html.haml within layouts/application (Duration: 5.0ms | Allocations: 315)
+  [1m[36mRackCAS::ActiveRecordStore::Session Load (0.6ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."session_id" = $1 ORDER BY "sessions"."id" ASC LIMIT $2[0m  [["session_id", "363b8cf5589110d53c974e9646aa06f0"], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.haml:15
+  Rendered layout layouts/application.html.haml (Duration: 14.4ms | Allocations: 2680)
+Completed 200 OK in 23ms (Views: 17.1ms | ActiveRecord: 0.6ms | Allocations: 3012)
+
+
+  [1m[36mCACHE RackCAS::ActiveRecordStore::Session Load (0.0ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."session_id" = $1 ORDER BY "sessions"."id" ASC LIMIT $2[0m  [["session_id", "363b8cf5589110d53c974e9646aa06f0"], ["LIMIT", 1]]
+Killing session flusher
+Shutting down background worker
+Killing session flusher
+Shutting down background worker
+Initializing the background worker with 8 threads
+[Sessions] Sessions won't be captured without a valid release

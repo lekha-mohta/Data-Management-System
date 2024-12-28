@@ -1,0 +1,16 @@
+.row.justify-content-center
+  .col-sm-8.col-lg-6
+    .card
+      .card-header
+        Machine details
+      .card-body
+        %dl.row.mb-0
+          %dt.col-md-3 Name:
+          %dd.col-md-9= @machine.name
+          %dt.col-md-3 Description:
+          %dd.col-md-9= @machine.description
+          %dt.col-md-3 Archived:
+          %dd.col-md-9= @machine.archived
+      .card-footer.d-flex.justify-content-between.mt-2
+        = link_to 'Back', machines_path, class: 'btn btn-outline-secondary'
+        = link_to 'Edit', edit_machine_path(@machine, set_params: false), class: 'btn btn-primary'

@@ -1,0 +1,22 @@
+.card
+  .card-header.d-flex.align-items-center
+    %span Listing Attachment Builds
+
+    = link_to 'New Attachment build', new_attachment_build_path, class: 'btn btn-outline-secondary ms-auto'
+
+  %table.table
+    %thead
+      %tr
+        %th Attachmentid
+        %th Buildid
+        %th
+    %tbody
+      - @attachment_builds.each do |attachment_build|
+        %tr
+          %td= attachment_build.attachmentId
+          %td= attachment_build.buildId
+          %td
+            .btn-toolbar.float-end
+              = link_to 'Show', attachment_build, class: 'btn btn-outline-secondary btn-sm'
+              = link_to 'Edit', edit_attachment_build_path(attachment_build), class: 'btn btn-outline-secondary ms-1 btn-sm'
+              = link_to 'Destroy', attachment_build, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-danger ms-1 btn-sm'

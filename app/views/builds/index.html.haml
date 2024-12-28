@@ -1,0 +1,131 @@
+.card.mb-3
+  .card-header.d-flex.align-items-center
+    %a{ "data-bs-toggle": "collapse", href: "#filterOptions", class: 'btn btn-outline-secondary' }
+      %span Filtering Options ▲▼
+
+  -# Layout for the search-filter 
+  #filterOptions.collapse.show
+    .card-body
+      = form_tag builds_path, method: :get, class: 'd-flex flex-column px-3' do 
+        .row
+          .form-group.col-md-4.mb-2
+            = label_tag :name, "Build Name:"
+            = text_field_tag :name, params[:name], class: 'form-control', placeholder: 'Name'
+          .form-group.col-md-4.mb-2
+            = label_tag :projectId, "Project:"
+            = select_tag :projectId, options_for_select(BuildProject.pluck(:name, :id), params[:projectId]), include_blank: 'Select Project', class: 'form-select'
+          .form-group.col-md-4.mb-2
+            = label_tag :machineId, "Machine:"
+            = select_tag :machineId, options_for_select(Machine.pluck(:name, :id), params[:machineId]), include_blank: 'Select Machine', class: 'form-select'
+          .form-group.col-md-4.mb-2
+            = label_tag :materialId, "Material:"
+            = select_tag :materialId, options_for_select(Material.pluck(:name, :id), params[:materialId]), include_blank: 'Select Material', class: 'form-select'
+
+          .form-group.col-md-4.mb-2
+            = label_tag :createdBy, "File Creator:"
+            = text_field_tag :createdBy, params[:createdBy], class: 'form-control', placeholder: 'Creator'
+          .form-group.col-md-4.mb-2
+            = label_tag :modifiedBy, "Last Modifier:"
+            = text_field_tag :modifiedBy, params[:modifiedBy], class: 'form-control', placeholder: 'Last Modifier'
+
+          .form-group.col-md-4.mb-2
+            = label_tag :avgUTS, "Average UTS:"
+            .row
+              .col-md-6.mb-2
+                = number_field_tag :avgUTS_min, params[:avgUTS_min], class: 'form-control', placeholder: 'Min MPa'
+              .col-md-6.mb-2
+                = number_field_tag :avgUTS_max, params[:avgUTS_max], class: 'form-control', placeholder: 'Max MPa'
+
+          .form-group.col-md-4.mb-2
+            = label_tag :avgModules, "Average Modulus:"
+            .row
+              .col-md-6.mb-2
+                = number_field_tag :avgModules_min, params[:avgModules_min], class: 'form-control', placeholder: 'Min MPa'
+              .col-md-6.mb-2
+                = number_field_tag :avgModules_max, params[:avgModules_max], class: 'form-control', placeholder: 'Max MPa'
+          
+          .form-group.col-md-4.mb-2
+            = label_tag :avgEaB, "Average EaB:"
+            .row
+              .col-md-6.mb-2
+                = number_field_tag :avgEaB_min, params[:avgEaB_min], class: 'form-control', placeholder: 'Min %'
+              .col-md-6.mb-2
+                = number_field_tag :avgEaB_max, params[:avgEaB_max], class: 'form-control', placeholder: 'Max %'
+          
+          .form-group.col-md-4.mb-2
+            = label_tag :created_at, "Creation Date:"
+            .row
+              .col-md-6.mb-2
+                = date_field_tag :created_at_min, params[:created_at_min], class: 'form-control'
+              .col-md-6.mb-2
+                = date_field_tag :created_at_max, params[:created_at_max], class: 'form-control'   
+          .form-group.col-md-4.mb-2
+            = label_tag :updated_at, "Last Update:"
+            .row
+              .col-md-6.mb-2
+                = date_field_tag :updated_at_min, params[:updated_at_min], class: 'form-control'
+              .col-md-6.mb-2
+                = date_field_tag :updated_at_max, params[:updated_at_max], class: 'form-control'
+
+        .d-flex.justify-content-between
+          = link_to "Clear Filters", builds_path, class: 'btn btn-secondary'
+          = submit_tag "Apply Filters", class: 'btn btn-primary'
+
+-# Layout for the show table of builds
+.card.mb-2
+  .card-header.d-flex.align-items-center
+    %span Listing Builds
+    = link_to 'New Build', new_build_path, class: 'btn btn-outline-secondary ms-auto'
+
+  -# Layout for filtering show table in ascending and descending order
+  %table.table.table-striped.table-hover
+    %thead.table-secondary
+      %tr
+  
+        %th 
+          Name
+          = link_to '▲', request.params.merge(sort: 'name', order: 'asc'), class: 'text-decoration-none text-primary'
+          = link_to '▼', request.params.merge(sort: 'name', order: 'desc'), class: 'text-decoration-none text-primary'
+        %th Project
+        %th Machine
+        %th Material  
+        %th 
+          Avg UTS
+          = link_to '▲', request.params.merge(sort: 'avgUTS', order: 'asc'), class: 'text-decoration-none text-primary'
+          = link_to '▼', request.params.merge(sort: 'avgUTS', order: 'desc'), class: 'text-decoration-none text-primary'
+        %th
+          Avg Modulus
+          = link_to '▲', request.params.merge(sort: 'avgModules', order: 'asc'), class: 'text-decoration-none text-primary'
+          = link_to '▼', request.params.merge(sort: 'avgModules', order: 'desc'), class: 'text-decoration-none text-primary'
+        %th 
+          Avg EaB
+          = link_to '▲', request.params.merge(sort: 'avgEaB', order: 'asc'), class: 'text-decoration-none text-primary'
+          = link_to '▼', request.params.merge(sort: 'avgEaB', order: 'desc'), class: 'text-decoration-none text-primary'
+        %th
+          Created By 
+          = link_to '▲', request.params.merge(sort: 'createdBy', order: 'asc'), class: 'text-decoration-none text-primary'
+          = link_to '▼', request.params.merge(sort: 'createdBy', order: 'desc'), class: 'text-decoration-none text-primary'
+        %th
+          Modified By
+          = link_to '▲', request.params.merge(sort: 'modifiedBy', order: 'asc'), class: 'text-decoration-none text-primary'
+          = link_to '▼', request.params.merge(sort: 'modifiedBy', order: 'desc'), class: 'text-decoration-none text-primary'
+        %th
+    %tbody
+      - if @build.empty? || @build.nil?
+        %tr
+          %td{:colspan => 10, :style => "text-align: center; font-weight: bold;"}= "No Builds found"
+      - @build.each do |build|
+        %tr
+          %td= build.name
+          %td= build.build_project.name
+          %td= build.machine.name
+          %td= build.material.name
+          %td= build.avgUTS
+          %td= build.avgModules
+          %td= build.avgEaB
+          %td= build.created_by.givenname
+          %td= build.modified_by.givenname
+          %td
+            .btn-toolbar.float-end
+              = link_to 'Show', build, class: 'btn btn-outline-secondary btn-sm'
+

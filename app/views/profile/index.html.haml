@@ -1,0 +1,18 @@
+.row.justify-content-center
+  .col-sm-8.col-lg-6
+    .card
+      .card-header
+        Profile
+
+      .card-body
+        %dl.row.mb-0
+          %dt.col-md-3 Username:
+          %dd.col-md-9= current_user.username
+          %dt.col-md-3 First name:
+          %dd.col-md-9= current_user.givenname
+          %dt.col-md-3 Last name:
+          %dd.col-md-9= current_user.sn
+          %dt.col-md-3 Email:
+          %dd.col-md-9= current_user.email
+          %dt.col-md-3 Role:
+          %dd.col-md-9= current_user.role.capitalize

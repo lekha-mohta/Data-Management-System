@@ -1,0 +1,14 @@
+.row.justify-content-center
+  .col-sm-8.col-lg-6
+    .card
+      .card-header
+        Attachment Process details
+      .card-body
+        %dl.row.mb-0
+          %dt.col-md-3 Attachmentid:
+          %dd.col-md-9= @attachment_process.attachmentId
+          %dt.col-md-3 Processid:
+          %dd.col-md-9= @attachment_process.processId
+      .card-footer.d-flex
+        = link_to 'Edit', edit_attachment_process_path(@attachment_process), class: 'btn btn-link'
+        = link_to 'Back', attachment_processes_path, class: 'btn btn-link ms-auto'

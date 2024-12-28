@@ -1,0 +1,45 @@
+.card.mb-3
+  .card-header.d-flex.align-items-center
+    %span Add Machine to: #{@group.name}
+    = link_to 'Back', edit_group_path(@group), class: 'btn btn-outline-secondary ms-auto'
+
+  #filterOptions.show
+    .card-body
+      = form_tag request.fullpath, method: :get, class: 'd-flex flex-column px-3' do 
+        .row
+          .form-group.col-md-4.mb-2
+            = label_tag :name, "Machine Name:"
+            = text_field_tag :name, params[:name], class: 'form-control', placeholder: 'File Name'
+        .justify-content-between
+          = submit_tag "Search", class: 'btn btn-primary'
+          = link_to "Clear", new_group_machine_path(@group), class: 'btn btn-secondary'
+.card.mb-2
+  %table.table.table-striped.table-hover
+    %thead.table-secondary
+      %tr
+        %th Name
+        %th Description
+        %th Archived
+        %th
+
+    %tbody
+      - @group_machines.each do |group_machine|
+        %tr
+          - machine = group_machine.machine
+          %td= machine.name
+          %td= machine.description
+          %td= machine.archived
+          %td
+            .btn-toolbar.float-end
+              = button_to 'Remove', group_machine_path(group_machine),method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-danger btn-sm'
+      - @machines.each do |machine|
+        %tr
+          %td= machine.name
+          %td= machine.description
+          %td= machine.archived
+          %td
+            .btn-toolbar.float-end
+              = form_with url: group_machines_path, method: :post, scope: :group_machine do |form|
+                = form.hidden_field :groupId, value: @group.id
+                = form.hidden_field :machineId, value: machine.id
+                = form.submit 'Add', class: 'btn btn-outline-secondary btn-sm'

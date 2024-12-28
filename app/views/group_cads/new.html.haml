@@ -1,0 +1,64 @@
+.card.mb-3
+  .card-header.d-flex.align-items-center
+    %span Add CAD to: #{@group.name}
+    = link_to 'Back', edit_group_path(@group), class: 'btn btn-outline-secondary ms-auto'
+
+  #filterOptions.show
+    .card-body
+      = form_tag request.fullpath, method: :get, class: 'd-flex flex-column px-3' do 
+        .row
+          .form-group.col-md-4.mb-2
+            = label_tag :name, "File Name:"
+            = text_field_tag :name, params[:name], class: 'form-control', placeholder: 'File Name'
+        .justify-content-between
+          = submit_tag "Search", class: 'btn btn-primary'
+          = link_to "Clear", new_group_cad_path(@group), class: 'btn btn-secondary'
+.card.mb-2
+  %table.table.table-striped.table-hover
+    %thead.table-secondary
+      %tr
+        %th 
+          File name
+          = link_to '▲', request.params.merge(sort: 'name', order: 'asc'), class: 'text-decoration-none text-primary'
+          = link_to '▼', request.params.merge(sort: 'name', order: 'desc'), class: 'text-decoration-none text-primary'
+        %th 
+          File Type
+          = link_to '▲', request.params.merge(sort: 'file_type', order: 'asc'), class: 'text-decoration-none text-primary'
+          = link_to '▼', request.params.merge(sort: 'file_type', order: 'desc'), class: 'text-decoration-none text-primary'
+        %th 
+          Creator
+          = link_to '▲', request.params.merge(sort: 'createdBy', order: 'asc'), class: 'text-decoration-none text-primary'
+          = link_to '▼', request.params.merge(sort: 'createdBy', order: 'desc'), class: 'text-decoration-none text-primary'
+        %th 
+          Last Modifier
+          = link_to '▲', request.params.merge(sort: 'modifiedBy', order: 'asc'), class: 'text-decoration-none text-primary'
+          = link_to '▼', request.params.merge(sort: 'modifiedBy', order: 'desc'), class: 'text-decoration-none text-primary'
+        %th
+          Archived
+        %th
+
+    %tbody
+      - @group_cads.each do |group_cad|
+        %tr
+          - cad = group_cad.cad
+          %td= cad.name
+          %td= cad.file_type
+          %td= cad.created_by.email
+          %td= cad.modified_by.email
+          %td= cad.archived
+          %td
+            .btn-toolbar.float-end
+              = button_to 'Remove', group_cad_path(group_cad),method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-danger btn-sm'
+      - @cads.each do |cad|
+        %tr
+          %td= cad.name
+          %td= cad.file_type
+          %td= cad.created_by.email
+          %td= cad.modified_by.email
+          %td= cad.archived
+          %td
+            .btn-toolbar.float-end
+              = form_with url: group_cads_path, method: :post, scope: :group_cad do |form|
+                = form.hidden_field :groupId, value: @group.id
+                = form.hidden_field :cadId, value: cad.id
+                = form.submit 'Add', class: 'btn btn-outline-secondary btn-sm'

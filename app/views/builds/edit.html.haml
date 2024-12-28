@@ -1,0 +1,57 @@
+.row.justify-content-center
+  .col-sm-8.col-lg-6
+    - if @build.errors.any?
+      .col-sm.col-lg
+        .alert.alert-danger
+          %ul
+            - @build.errors.full_messages.each do |message|
+              %li= message
+
+    -# Form for editing a build
+    .card.mb-2
+      .card-header Editing Build: #{@build.name}
+      = form_with model: @build, local: true, class: 'd-flex flex-column' do |form|
+        .card-body
+          .form-group.col-md-4.mb-2
+            = form.label :name, "Name:"
+            = form.text_field :name, class: 'form-control', placeholder: 'Name'
+          .form-group.col-md-4.mb-2
+            = form.label :projectId, "Project:"
+            = form.collection_select :projectId, BuildProject.all, :id, :name, { include_blank: 'Select Project' }, { class: 'form-select' }
+          .form-group.col-md-4.mb-2
+            = form.label :materialId, "Material:"
+            = form.collection_select :materialId, Material.where(archived: false), :id, :name, { include_blank: 'Select Material' }, { class: 'form-select' }
+          .form-group.mb-2
+            = form.label :comments, "Comments:"
+            = form.text_field :comments, class: 'form-control', placeholder: 'Comments'
+          .form-group.col-md-4.mb-2
+            = form.label :avgUTS, "Avg UTS:"
+            = form.number_field :avgUTS, class: 'form-control', placeholder: ''
+          .form-group.col-md-4.mb-2
+            = form.label :avgModules, "Avg Modulus:"
+            = form.number_field :avgModules, class: 'form-control', placeholder: ''
+          .form-group.col-md-4.mb-2
+            = form.label :avgEaB, "Avg EaB:"
+            = form.number_field :avgEaB, class: 'form-control', placeholder: ''
+          .form-group.col-md-4.my-3
+            = form.check_box :completed
+            = form.label :completed, "Completed:"
+          .form-group.col-md-4.my-3
+            = form.label :tensile_raw_data, "Tenstile Raw Data:"  
+            = form.file_field :tensile_raw_data
+            
+          -# Showing machine specific parameters
+          - if @machine
+            = form.hidden_field :machineId, value: @machine.id
+            - @machine.parameters.each_with_index do |param, index|
+              .form-group.col-md-4.mb-2
+                = form.label param.name, "#{param.name}:"
+                .d-flex.align-items-center
+                  = text_field_tag "paramValues[#{index}]", @build_parameters.find { |bp| bp.parameterId == param.id }&.value, class: 'form-control', placeholder: ''
+                  - if param.unit != 'N/A'
+                    %span{ style: 'margin-left: 5px; white-space: nowrap;' }= param.unit
+                  = hidden_field_tag "paramIds[#{index}]", value: param.id
+
+        .card-footer.d-flex.justify-content-between.mt-2
+          = link_to 'Back', builds_path(@build.id), class: 'btn btn-outline-secondary'
+          = form.submit "Update Build", class: 'btn btn-primary'

@@ -1,0 +1,53 @@
+
+.card.mb-3
+  .card-header.d-flex.align-items-center
+    %span Add Users to: #{@group.name}
+    = link_to 'Back', edit_group_path(@group), class: 'btn btn-outline-secondary ms-auto'
+
+  #filterOptions.show
+    .card-body
+      = form_tag request.fullpath , method: :get, class: 'd-flex flex-column px-2' do 
+        .row
+          .form-group.col-md-4.mb-2
+            = label_tag :email, "User Email:"
+            = text_field_tag :email, params[:name], class: 'form-control', placeholder: 'Email'
+
+        .justify-content-between.mt-2
+          = submit_tag "Search", class: 'btn btn-primary'
+          = link_to "Clear", new_group_user_path(@group), class: 'btn btn-secondary'
+.card.mb-2
+  %table.table.table-striped.table-hover
+    %thead.table-secondary
+      %tr
+        %th
+          Email
+        %th
+          Username
+        %th
+          Given Name 
+        %th
+          User Role
+        %th
+    %tbody
+      - @group_users.each do |group_user|
+        %tr
+          - user = group_user.user
+          %td= user.email
+          %td= user.username
+          %td= user.givenname
+          %td= user.role
+          %td
+            .btn-toolbar.float-end
+              = button_to 'Remove', group_user_path(group_user), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-danger btn-sm'
+      - @users.each do |user|
+        %tr
+          %td= user.email
+          %td= user.username
+          %td= user.givenname
+          %td= user.role
+          %td
+            .btn-toolbar.float-end
+              = form_with url: group_users_path, method: :post, scope: :group_user do |form|
+                = form.hidden_field :groupId, value: @group.id
+                = form.hidden_field :userId, value: user.id
+                = form.submit 'Add', class: 'btn btn-outline-secondary btn-sm'

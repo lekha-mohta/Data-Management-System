@@ -1,0 +1,14 @@
+.row.justify-content-center
+  .col-sm-8.col-lg-6
+    .card
+      .card-header
+        Project details
+      .card-body
+        %dl.row.mb-0
+          %dt.col-md-3 Name:
+          %dd.col-md-9= @project.name
+          %dt.col-md-3 Description:
+          %dd.col-md-9= @project.description
+      .card-footer.d-flex
+        = link_to 'Edit', edit_project_path(@project), class: 'btn btn-link'
+        = link_to 'Back', projects_path, class: 'btn btn-link ms-auto'

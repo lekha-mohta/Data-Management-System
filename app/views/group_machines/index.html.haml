@@ -1,0 +1,22 @@
+.card
+  .card-header.d-flex.align-items-center
+    %span Listing Group Machinees
+
+    = link_to 'New Group machine', new_group_machine_path, class: 'btn btn-outline-secondary ms-auto'
+
+  %table.table
+    %thead
+      %tr
+        %th Groupid
+        %th Processid
+        %th
+    %tbody
+      - @group_machines.each do |group_machine|
+        %tr
+          %td= group_machine.groupId
+          %td= group_machine.machineId
+          %td
+            .btn-toolbar.float-end
+              = link_to 'Show', group_machine, class: 'btn btn-outline-secondary btn-sm'
+              = link_to 'Edit', edit_group_machine_path(group_machine), class: 'btn btn-outline-secondary ms-1 btn-sm'
+              = link_to 'Destroy', group_machine, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-danger ms-1 btn-sm'

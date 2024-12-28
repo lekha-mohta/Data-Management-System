@@ -1,0 +1,14 @@
+#+title: Documentation
+#+author: Team 07
+#+SETUPFILE: ~/.config/doom/latex-templates/report.org
+#+OPTIONS: num:2
+#+LATEX_HEADER: \fancyhead[C]{Report - Team 038}
+#+LATEX_HEADER: \fancyfoot[C]{\thepage}
+
+#+LATEX: \newpage
+
+* Entity Relationship Diagram
+
+#+begin_src mermaid :theme default :file ERD.png
+
+#+end_src

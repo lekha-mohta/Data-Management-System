@@ -1,0 +1,90 @@
+.row.justify-content-center
+  .col-sm-8.col-lg-6
+    .card
+      .card-header
+        %span Editing Group
+      .card-body
+        = form_for @group do |f|
+          .row
+            .form-group.col-md-4.m-2
+              %h4 Group Details
+          .row
+            .form-group.col-md-4.m-2
+              = f.label :name, "Name"
+          .row
+            .form-group.mx-auto
+              = f.text_field :name, class: 'form-control rounded'
+          .row
+            .form-group.col-md-4.m-2
+              = f.label :description, "Description"
+          .row
+            .form-group.mx-auto
+              = f.text_area :description, class: 'form-control rounded'
+          .row.col-md-4.mx-2.mt-3
+            = f.submit class: 'btn btn-primary ml-auto'
+      .card-footer
+        = link_to 'Back', groups_path, class: 'btn btn-outline-secondary ms-auto'
+    .card.mt-3
+      .card-header
+        %span Group Objects
+      .card-body
+        .row
+          .form-group.m-2
+            %h4 Users 
+            - if @users.any?
+              %ul
+                - @users.each do |user|
+                  %li= user.email
+            - else
+              %i.text-muted No users in group
+        .row
+          .form-group.m-2
+            = link_to 'Manage Users', new_group_user_path(@group), class: 'btn btn-outline-primary'
+        .row
+          .form-group.m-2
+            %h4 Builds
+            - if @builds.any?
+              %ul
+                - @builds.each do |build|
+                  %li= build.name
+            - else
+              %i.text-muted No builds in group
+        .row
+          .form-group.m-2
+            = link_to 'Manage Builds', new_group_build_path(@group), class: 'btn btn-outline-primary'
+        .row
+          .form-group.m-2
+            %h4 CADs
+            - if @cads.any?
+              %ul
+                - @cads.each do |cad|
+                  %li= cad.name
+            - else
+              %i.text-muted No CADs in group
+        .row
+          .form-group.m-2
+            = link_to 'Manage CADs', new_group_cad_path(@group), class: 'btn btn-outline-primary'
+        .row
+          .form-group.m-2
+            %h4 Machines
+            - if @machines.any?
+              %ul
+                - @machines.each do |machine|
+                  %li= machine.name
+            - else
+              %i.text-muted No machines in group
+        .row
+          .form-group.m-2
+            = link_to 'Manage Machines', new_group_machine_path(@group), class: 'btn btn-outline-primary'
+        .row 
+          .form-group.m-2
+            %h4 Materials
+            - if @materials.any?
+              %ul
+                - @materials.each do |material|
+                  %li= material.name
+            - else
+              %i.text-muted No materials in group
+        .row
+          .form-group.m-2
+            = link_to 'Manage Materials', new_group_material_path(@group), class: 'btn btn-outline-primary'

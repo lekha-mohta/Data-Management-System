@@ -1,0 +1,84 @@
+!!!
+%html{ lang: 'en-GB' }
+  %head
+    %title Project
+
+    %meta{ :'http-equiv' => "content-type", content: "text/html; charset=utf-8" }
+    %meta{ :'http-equiv' => 'X-UA-Compatible', content: 'IE=edge' }
+    %meta{ name: "viewport", content: "width=device-width, initial-scale=1.0, shrink-to-fit=no" }
+
+    - if content_for(:description)
+      %meta{ content: content_for(:description), name: 'description' }
+
+    %title= ["Project", content_for(:title)].compact.join(' - ')
+
+    = csrf_meta_tags
+    = csp_meta_tag
+
+    = stylesheet_pack_tag 'styles', media: 'all'
+    = javascript_pack_tag 'application'
+
+  %body
+    %header.navbar.navbar-expand-md.bg-layout.mb-3
+      .container-fluid.d-flex.justify-content-between
+        = link_to '/', class: 'navbar-brand' do
+          = image_pack_tag 'images/logo.png', height: 50
+      - if user_signed_in?
+        %button.navbar-toggler{ type: :button, data: { bs_toggle: :collapse, bs_target: '#navbar-content' }, aria: { controls: 'navbar-content', expanded: 'false', label: 'Toggle navigation' } }
+          %span.navbar-toggler-icon
+        #navbar-content.navbar-collapse.collapse
+          %nav.navbar-nav
+            = link_to '/materials', class: "nav-link#{' active' if current_page?(materials_path)}" do
+              %i.bi-book
+              Materials
+            = link_to '/cads', class: "nav-link#{' active' if current_page?(cads_path)}" do
+              %i.bi-file-earmark-binary
+              CAD Files
+            = link_to '/builds', class: "nav-link#{' active' if current_page?(builds_path)}" do
+              %i.bi-tools
+              Builds
+            %li.nav-item.dropdown
+            %a.btn.btn-secondary.dropdown-toggle{ type: "button", id: "navbarDropdown", "data-bs-toggle": "dropdown", "aria-expanded": "false" }
+              %i.bi.bi-person-circle
+            .dropdown-menu.dropdown-menu-end{ "aria-labelledby": "navbarDropdown" }
+              = link_to '/profile', class: 'dropdown-item fs-5 text-muted' do
+                = current_user.username
+              = link_to '/machines', class: 'dropdown-item' do
+                Machines
+              - if can?(:read, Group)
+                = link_to '/groups', class: 'dropdown-item' do
+                  Groups
+              - if current_user.get_role_number == 3
+                = link_to '/build_projects', class: 'dropdown-item' do
+                  Projects
+              - if can?(:read, User)
+                = link_to '/users', class: 'dropdown-item' do
+                  User Roles
+              .logout
+                = link_to destroy_user_session_path, method: :delete, class: 'dropdown-item' do
+                  Logout
+      - else
+        = link_to 'Login', new_user_session_path, class: 'btn btn-primary mx-2'
+
+
+
+    - if flash.present?
+      .container-fluid.flash-messages
+        - flash.each do |message_type, message|
+          - next unless message_type == 'alert' || message_type == 'notice'
+          .alert{ class: "alert-#{ message_type == 'notice' ? 'success' : 'danger' }" }= message
+
+    %main
+      .container-fluid
+        = yield
+
+    %footer
+      .mt-5.bg-layout
+        .container-fluid.footer-foot.d-flex.p-3.justify-content-between
+          %div
+            = link_to 'mailto:c.majewski@sheffeld.ac.uk', class: 'foot-link' do
+              Contact us
+            = link_to '/', class: 'foot-link' do
+              Privacy Policy
+          %span.text-white
+            Copyright © 2024 Team 07

@@ -1,0 +1,20 @@
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+
+$primary: $indigo-500;
+$secondary: $indigo-700;
+$success: $green-500;
+$info: $blue-600;
+$warning: $yellow-500;
+$danger: $red-500;
+
+$theme-colors: (
+  'primary': $primary,
+  'secondary': $secondary,
+  'success': $success,
+  'info': $info,
+  'warning': $warning,
+  'danger': $danger,
+  'light': $light,
+  'dark': $dark,
+);
